@@ -17,59 +17,62 @@
         <script src='Scripts/ProjectTimelineHandler.js'></script>
     </head>
     <body>
-        <div class="BackgroundVideoContainer">
+        <div class="HomePageContainer">
+            <div class="BackgroundVideoContainer">
                 <video autoplay muted loop playsinline class="BackgroundVideo" src=""></video>
+            </div>
+            <div class="BackgroundVideoShadow"></div>
+            <div class="BackgroundVideoFade"></div>
+            <div class="MainContainer">
+                <div></div>
+                <div class="VideoInfoContainer Unloaded">
+                    <div class="VideoInfoTitle bebas-neue-regular">Mar Made Sushi</div>
+                    <div class="VideoInfoDesc martel-sans-semibold"></div>
+                    <div class="VideoInfoButtons">
+                        <div class="VideoInfoButton VideoInfoPlayButton martel-sans-bold"><i class="fa-solid fa-play"></i> <span class="PlayVideoText">Video</span></div>
+                        <div class="VideoInfoButton VideoInfoMoreButton martel-sans-bold"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="MoreText">More Info</span></div>
+                    </div>
+                </div>
+
+                <div class="ProjectsTimelineContainer Unloaded">
+                    <div class="ProjectsTimelineList">
+                        <div class="ProjectTimelineCard ActiveProjectCard">
+                            <div class="ProjectTimelineLine">
+                                <div class="ProjectTimelineLineProgress"></div>
+                            </div>
+                            
+                            <div class="ProjectTimelineCardInfo">
+                                <div class="ProjectTimelineImage" style="background-image: url('Images/MarMadeSushi.png');"></div>
+                                <div class="ProjectTimelineInfoContainer">
+                                    <div class="ProjectTimelineTitle bebas-neue-regular">Mar Made Sushi</div>
+                                    <div class="ProjectTimelineGameTags martel-sans-bold">Multiplayer</br>Strategy</br>Prototype</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ProjectTimelineCard">
+                            <div class="ProjectTimelineLine">
+                                <div class="ProjectTimelineLineProgress"></div>
+                            </div>
+                            
+                            <div class="ProjectTimelineCardInfo">
+                                <div class="ProjectTimelineImage" style="background-image: url('Images/3x4_placeholder.jpg');"></div>
+                                <div class="ProjectTimelineInfoContainer">
+                                    <div class="ProjectTimelineTitle bebas-neue-regular">Deep Anomaly</div>
+                                    <div class="ProjectTimelineGameTags martel-sans-bold">Local Multiplayer</br>Party</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="BackgroundVideoShadow"></div>
-        <div class="BackgroundVideoFade"></div>
-        <div class="MainContainer">
-            <div class="TopBarContianer">
+
+        <div class="TopBarContianer">
                 <div class="TopBarLogo bebas-neue-regular">Gonçalo Valente</div>
                 <div class="TopBarButton martel-sans-semibold Selected">Home</div>
                 <div class="TopBarButton martel-sans-semibold">Resumé</div>
                 <div class="TopBarButton martel-sans-semibold">Contact</div>
             </div>
-
-            <div class="VideoInfoContainer Unloaded">
-                <div class="VideoInfoTitle bebas-neue-regular">Mar Made Sushi</div>
-                <div class="VideoInfoDesc martel-sans-semibold"></div>
-                <div class="VideoInfoButtons">
-                    <div class="VideoInfoButton VideoInfoPlayButton martel-sans-bold"><i class="fa-solid fa-play"></i> <span class="PlayVideoText">Video</span></div>
-                    <div class="VideoInfoButton VideoInfoMoreButton martel-sans-bold"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="MoreText">More Info</span></div>
-                </div>
-            </div>
-
-            <div class="ProjectsTimelineContainer Unloaded">
-                <div class="ProjectsTimelineList">
-                    <div class="ProjectTimelineCard ActiveProjectCard">
-                        <div class="ProjectTimelineLine">
-                            <div class="ProjectTimelineLineProgress"></div>
-                        </div>
-                        
-                        <div class="ProjectTimelineCardInfo">
-                            <div class="ProjectTimelineImage" style="background-image: url('Images/MarMadeSushi.png');"></div>
-                            <div class="ProjectTimelineInfoContainer">
-                                <div class="ProjectTimelineTitle bebas-neue-regular">Mar Made Sushi</div>
-                                <div class="ProjectTimelineGameTags martel-sans-bold">Multiplayer</br>Strategy</br>Prototype</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ProjectTimelineCard">
-                        <div class="ProjectTimelineLine">
-                            <div class="ProjectTimelineLineProgress"></div>
-                        </div>
-                        
-                        <div class="ProjectTimelineCardInfo">
-                            <div class="ProjectTimelineImage" style="background-image: url('Images/3x4_placeholder.jpg');"></div>
-                            <div class="ProjectTimelineInfoContainer">
-                                <div class="ProjectTimelineTitle bebas-neue-regular">Deep Anomaly</div>
-                                <div class="ProjectTimelineGameTags martel-sans-bold">Local Multiplayer</br>Party</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="WebsiteLoadingScreen Active">
             <div class="WebsiteLoadingText bebas-neue-regular"></div>
         </div>
