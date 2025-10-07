@@ -1,3 +1,4 @@
+var TimeBetweenProjects = 15000; // Time in milliseconds between automatic project changes
 var Projects = [ 
     {
         "ProjectName": "Venci's Adventures",
@@ -126,7 +127,7 @@ function DisplayProject(p_index) {
         setTimeout(() => {
             LoadProject(p_index == Projects.length - 1 ? 0 : p_index + 1);
         }, 1000);
-    }, 10000);
+    }, TimeBetweenProjects);
 }
 
 function LoadProject(p_index) {
@@ -176,7 +177,7 @@ function ReloadCurrentProject(p_index) {
         setTimeout(() => {
             LoadProject(p_index == Projects.length - 1 ? 0 : p_index + 1);
         }, 1000);
-    }, 10000);
+    }, TimeBetweenProjects);
 }
 
 window.addEventListener("load", (event) => {

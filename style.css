@@ -231,7 +231,7 @@ body {
 .ProjectTimelineCard.ActiveProjectCard .ProjectTimelineLineProgress {
     width: 100%;
     background-color: white;
-    animation: TimeLineBar 10s linear;
+    animation: TimeLineBar 15s linear;
 }
 
 .ProjectTimelineCard.BeforeActiveProjectCard .ProjectTimelineLineProgress {
