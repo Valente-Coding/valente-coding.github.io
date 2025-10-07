@@ -1,4 +1,13 @@
-var Projects = [
+var Projects = [ 
+    {
+        "ProjectName": "Venci's Adventures",
+        "ProjectDescription": "Dive into the world of Vencis and tackle cybersecurity challenges where mastering complex topics becomes effortlessly engaging. Let's game, learn, and secure!",
+        "ProjectTags": ["Singleplayer", "eLearning", "Unity", "Internship"],
+        "ProjectImage": "Images/VencisAdventures.png",
+        "ProjectVideo": "Images/VencisAdventures.mp4",
+        "ProjectVideoLink": "https://www.linkedin.com/posts/emvenci_lets-game-learn-and-secure-activity-7117422051514023936-N7AB",
+        "ProjectSourceLink": "https://www.linkedin.com/posts/emvenci_lets-game-learn-and-secure-activity-7117422051514023936-N7AB",
+    },
     {
         "ProjectName": "Mar Made Sushi",
         "ProjectDescription": "Mar Made Sushi is a fun multiplayer prototype where players must work together to manage a restaurant. Collaborate with your teammates to fish for ingredients, cook delicious dishes, and host clients efficiently. Teamwork and coordination are key to keeping the restaurant running smoothly and satisfying your customers.",
