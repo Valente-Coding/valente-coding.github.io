@@ -15,6 +15,8 @@
         <link rel='stylesheet' type='text/css' media='screen' href='animations.css'>
         <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
         <script src='Scripts/ProjectTimelineHandler.js'></script>
+        <script src='Scripts/PagesHandler.js'></script>
+        <script src='Scripts/CVFollowAnimation.js'></script>
     </head>
     <body>
         <div class="HomePageContainer">
@@ -67,12 +69,22 @@
             </div>
         </div>
 
-        <div class="TopBarContianer">
-                <div class="TopBarLogo bebas-neue-regular">Gonçalo Valente</div>
-                <div class="TopBarButton martel-sans-semibold Selected">Home</div>
-                <div class="TopBarButton martel-sans-semibold">Resumé</div>
-                <div class="TopBarButton martel-sans-semibold">Contact</div>
+        <div class="ResumePageContainer" style="display: none;">
+            <div class="ResumeImageContainer">
+                <div class="ResumeImageText bebas-neue-regular">VALENTE</div>
+                <div class="ResumeImageCard">
+                    <img class="ResumeFrontImage" src="Images/GoncaloValenteCV.jpg">
+                </div>
             </div>
+        </div>
+
+        <div class="TopBarContainer">
+            <div class="TopBarLogo bebas-neue-regular">Gonçalo Valente</div>
+            <div class="TopBarButton martel-sans-semibold Selected" onmouseup="ShowPage(this, 'HomePageContainer')">Home</div>
+            <div class="TopBarButton martel-sans-semibold" onmouseup="ShowPage(this, 'ResumePageContainer')">Resumé</div>
+            <div class="TopBarButton martel-sans-semibold" onmouseup="ShowPage(this, 'ContactPageContainer')">Contact</div>
+        </div>
+
         <div class="WebsiteLoadingScreen Active">
             <div class="WebsiteLoadingText bebas-neue-regular"></div>
         </div>

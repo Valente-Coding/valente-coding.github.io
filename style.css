@@ -59,7 +59,7 @@ body {
 
 /* TOP BAR */
 
-.TopBarContianer {
+.TopBarContainer {
     position: absolute;
     display: grid;
     grid-auto-flow: column;
@@ -307,4 +307,46 @@ body {
 .WebsiteLoadingText::after {
     content: '';
     animation: Loading 1.5s step-end infinite alternate;
+    user-select: none;
+}
+
+
+/* RESUME PAGE */
+.ResumePageContainer {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+}
+
+.ResumeImageContainer {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    background-color: black;
+}
+
+.ResumeFrontImage {
+    width: 25vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0.5vh;
+    border: white 0.3vh solid;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: width 0.5s;
+}
+
+.ResumeImageText {
+    position: absolute;
+    font-size: 30vh;
+    color: rgb(30, 30, 30);
+    user-select: none;
+}
+
+.ResumeImageCard:hover .ResumeFrontImage {
+    width: 30vw;
 }
