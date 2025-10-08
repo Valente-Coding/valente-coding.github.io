@@ -1,18 +1,18 @@
-const pageTags = ["HomePageContainer", "ResumePageContainer"];
-var topBarContainer = undefined;
+const PageTags = ["HomePageContainer", "ResumePageContainer"];
+var TopBarContainer = undefined;
 
-function ShowPage(selectedTopBarButton, pageTag) {
-    pageTags.forEach(tag => {
-        const element = document.getElementsByClassName(tag)[0];
-        if (element) {
-            element.style.display = tag === pageTag ? 'block' : 'none';
+function ShowPage(p_selectedTopBarButton, p_pageTag) {
+    PageTags.forEach(l_tag => {
+        const l_element = document.getElementsByClassName(l_tag)[0];
+        if (l_element) {
+            l_element.style.display = l_tag === p_pageTag ? 'block' : 'none';
         }
     });
 
-    topBarContainer.getElementsByClassName("Selected")[0].classList.remove("Selected");
-    selectedTopBarButton.classList.add("Selected");
+    TopBarContainer.getElementsByClassName("Selected")[0].classList.remove("Selected");
+    p_selectedTopBarButton.classList.add("Selected");
 }
 
-window.addEventListener("load", (event) => {
-    topBarContainer = document.getElementsByClassName("TopBarContainer")[0];
+window.addEventListener("load", (p_event) => {
+    TopBarContainer = document.getElementsByClassName("TopBarContainer")[0];
 });
