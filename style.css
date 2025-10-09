@@ -70,6 +70,7 @@ body {
     padding-top: 3vh;
     padding-left: 4vw;
     padding-right: 4vw;
+    pointer-events: none;
 }
 
 .TopBarLogo {
@@ -80,6 +81,7 @@ body {
     cursor: pointer;
     color: rgb(170, 170, 170);
     transition: color 0.3s;
+    pointer-events: all;
 }
 
 .TopBarButton:hover {
@@ -330,14 +332,43 @@ body {
     background-color: black;
 }
 
+.ResumeImageCard {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.ResumeImageCard::before {
+    width: 100%;
+    height: 99.7%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    content: '';
+    background-color: rgb(190, 190, 190);
+    border-radius: 0.5vh;
+    transform: translateZ(-20px);
+}
+
+.ResumeImageCard::after {
+    width: 100%;
+    height: 99.7%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    content: '';
+    background-color: rgb(190, 190, 190);
+    border-radius: 0.5vh;
+    transform: translateZ(-10px);
+}
+
 .ResumeFrontImage {
     width: 25vw;
-    background-repeat: no-repeat;
-    background-size: cover;
     border-radius: 0.5vh;
     border: white 0.3vh solid;
-    transform: rotateX(0deg) rotateY(0deg);
     transition: width 0.5s;
+    transform: translateY(0.1vh);
 }
 
 .ResumeImageText {
@@ -347,6 +378,11 @@ body {
     user-select: none;
 }
 
-.ResumeImageCard:hover .ResumeFrontImage {
-    width: 30vw;
+.ResumeImageCard:hover {
+    margin-top: 5vh;
 }
+
+.ResumeImageCard:hover .ResumeFrontImage {
+    width: 50vw;
+}
+
