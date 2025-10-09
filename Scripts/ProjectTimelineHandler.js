@@ -180,10 +180,6 @@ function ReloadCurrentProject(p_index) {
     }, TimeBetweenProjects);
 }
 
-window.addEventListener("load", (event) => {
-    LoadProjects();
-});
-
 function TransformScrollSideways(event) {
     if (!event.deltaY) {
         return;
@@ -218,3 +214,8 @@ function RecreateNode(l_element, l_withChildren) {
             l_element.parentNode.replaceChild(l_newEl, l_element);
     }
 }
+
+window.addEventListener("load", (event) => {
+    if (window.innerWidth > 1000)
+        LoadProjects();
+});
