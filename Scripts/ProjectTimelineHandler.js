@@ -53,7 +53,7 @@ var Projects = [
     {
         "ProjectName": "Sudoku 48H",
         "ProjectDescription": "Sudoku48H is a project developed as part of a 48-hour challenge to test the developer's skills. The objective was to create a functional Sudoku game in Unity without referencing online resources. The project was completed in under 14 hours, with a significant portion of time spent refining the UI rather than the core game logic.",
-        "ProjectTags": ["Challenge", "Singleplayer", "Strategy" ],
+        "ProjectTags": ["Challenge", "Singleplayer", "Strategy"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/Sudoku48h.png",
         "ProjectVideo": "Images/Placeholder.mp4",
