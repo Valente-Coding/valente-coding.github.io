@@ -3,7 +3,7 @@ var Projects = [
     {
         "ProjectName": "Venci's Adventures",
         "ProjectDescription": "Dive into the world of Vencis and tackle cybersecurity challenges where mastering complex topics becomes effortlessly engaging. Let's game, learn, and secure!",
-        "ProjectTags": ["Singleplayer", "eLearning", "Internship"],
+        "ProjectTags": ["Internship", "Singleplayer", "eLearning"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/VencisAdventures.png",
         "ProjectVideo": "Images/VencisAdventures.mp4",
@@ -18,7 +18,7 @@ var Projects = [
         "ProjectImage": "Images/MarMadeSushi.png",
         "ProjectVideo": "Images/MarMadeSushi.mp4",
         "ProjectVideoLink": "https://youtu.be/4pTJCFrdATc",
-        "ProjectSourceLink": "",
+        "ProjectSourceLink": "https://github.com/Valente-Coding/MarMadeSushi",
     },
     {
         "ProjectName": "Deep Anomaly",
@@ -27,8 +27,8 @@ var Projects = [
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/DeepAnomaly.png",
         "ProjectVideo": "Images/DeepAnomaly.mp4",
-        "ProjectVideoLink": "",
-        "ProjectSourceLink": "",
+        "ProjectVideoLink": "https://kofkof.itch.io/deep-anomaly",
+        "ProjectSourceLink": "https://github.com/Valente-Coding/Deep-Anomalies",
     },
     {
         "ProjectName": "Mix & Serve",
@@ -38,7 +38,7 @@ var Projects = [
         "ProjectImage": "Images/MixAndServe.png",
         "ProjectVideo": "Images/MixAndServeFast.mp4",
         "ProjectVideoLink": "",
-        "ProjectSourceLink": "",
+        "ProjectSourceLink": "https://kofkof.itch.io/mixserve",
     },
     {
         "ProjectName": "Comedy Showdown",
@@ -47,8 +47,8 @@ var Projects = [
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/ComedyShowdown.png",
         "ProjectVideo": "Images/ComedyShowdown.mp4",
-        "ProjectVideoLink": "",
-        "ProjectSourceLink": "",
+        "ProjectVideoLink": "https://youtu.be/CxKWM5Gb2Qs",
+        "ProjectSourceLink": "https://kofkof.itch.io/comedy-showdown",
     },
     {
         "ProjectName": "Sudoku 48H",
@@ -103,6 +103,8 @@ function DisplayProject(p_index) {
     document.getElementsByClassName("VideoInfoDesc")[0].innerText = l_project.ProjectDescription;
     document.getElementsByClassName("VideoInfoPlayButton")[0].dataset.video = l_project.ProjectVideoLink;
     document.getElementsByClassName("VideoInfoMoreButton")[0].dataset.source = l_project.ProjectSourceLink;
+    
+    document.getElementsByClassName("PlayVideoText")[0].innerHTML = l_project.ProjectVideoLink == "" ? "N/A" : "Play";
 
     // Remove active class from previous active card
     document.getElementsByClassName("ActiveProjectCard")[0]?.classList.remove("ActiveProjectCard");
@@ -221,6 +223,20 @@ function RecreateNode(l_element, l_withChildren) {
         while (l_element.hasChildNodes()) l_newEl.appendChild(l_element.firstChild);
             l_element.parentNode.replaceChild(l_newEl, l_element);
     }
+}
+
+function OpenVideo() {
+    let l_videoLink = document.getElementsByClassName("VideoInfoPlayButton")[0].dataset.video;
+
+    if (l_videoLink && l_videoLink != "")
+        window.open(l_videoLink, '_blank').focus();
+}
+
+function OpenMoreInfo() {
+    let l_sourceLink = document.getElementsByClassName("VideoInfoMoreButton")[0].dataset.source;
+
+    if (l_sourceLink && l_sourceLink != "")
+        window.open(l_sourceLink, '_blank').focus();
 }
 
 window.addEventListener("load", (event) => {
