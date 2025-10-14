@@ -58,7 +58,7 @@ var Projects = [
         "ProjectImage": "Images/Sudoku48h.png",
         "ProjectVideo": "Images/Placeholder.mp4",
         "ProjectVideoLink": "",
-        "ProjectSourceLink": "",
+        "ProjectSourceLink": "https://kofkof.itch.io/sudoku-48h",
     }
 ]
 
@@ -105,6 +105,7 @@ function DisplayProject(p_index) {
     document.getElementsByClassName("VideoInfoMoreButton")[0].dataset.source = l_project.ProjectSourceLink;
     
     document.getElementsByClassName("PlayVideoText")[0].innerHTML = l_project.ProjectVideoLink == "" ? "N/A" : "Play";
+    document.getElementsByClassName("MoreText")[0].innerHTML = l_project.ProjectSourceLink == "" ? "N/A" : "More Info";
 
     // Remove active class from previous active card
     document.getElementsByClassName("ActiveProjectCard")[0]?.classList.remove("ActiveProjectCard");
