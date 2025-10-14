@@ -299,7 +299,7 @@ body {
     display: grid;
     row-gap: 0.5vh;
     align-content: start;
-    font-size: 1vh;
+    font-size: 1.1vh;
 }
 
 .ProjectTimelineGameTags span {
