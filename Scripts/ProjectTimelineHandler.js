@@ -25,7 +25,7 @@ var Projects = [
     {
         "ProjectName": "Deep Anomaly",
         "ProjectDescription": "Deep Anomaly is a local multiplayer party game where players must compete to catch the most fish avoiding the ones with anomalies.",
-        "ProjectTasks": ["Built game logic", "Added local multiplayer", "Created fishing system", "Designed scoring system"],
+        "ProjectTasks": ["Added local multiplayer", "Created fishing system", "Designed scoring system", "Built anomaly detection"],
         "ProjectTags": ["Game Jam", "Local Multiplayer", "Party"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/DeepAnomaly.png",
@@ -36,7 +36,7 @@ var Projects = [
     {
         "ProjectName": "Mix & Serve",
         "ProjectDescription": "In Mix & Serve you impersonate a bartender in a busy bar. You must quickly mix and serve drinks to your customers while managing your time and resources effectively. Your goal is to have enough money to pay your rent at the end of the day.",
-        "ProjectTasks": ["Built game mechanics", "Created mixing system", "Designed customer AI"],
+        "ProjectTasks": ["Created mixing system", "Designed customer AI", "Built time management", "Added resource tracking"],
         "ProjectTags": ["Game Jam","Singleplayer", "Simulation"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/MixAndServe.png",
@@ -47,7 +47,7 @@ var Projects = [
     {
         "ProjectName": "Comedy Showdown",
         "ProjectDescription": "Your goal is to write your own jokes to different people based on their likings. Each person has a different sense of humor, so you must choose the right joke to make them laugh. If you tell a joke that they don't like, they will get angry. If you fail at least 3 times, you lose the game.",
-        "ProjectTasks": ["Built game logic", "Created dynamic joke system", "Designed character AI"],
+        "ProjectTasks": ["Created dynamic joke system", "Designed character AI", "Built humor preferences", "Added failure mechanics"],
         "ProjectTags": ["Game Jam", "Singleplayer", "Comedy"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/ComedyShowdown.png",
@@ -58,7 +58,7 @@ var Projects = [
     {
         "ProjectName": "Sudoku 48H",
         "ProjectDescription": "Sudoku48H is a project developed as part of a 48-hour challenge to test the developer's skills. The objective was to create a functional Sudoku game in Unity without referencing online resources. The project was completed in under 14 hours, with a significant portion of time spent refining the UI rather than the core game logic.",
-        "ProjectTasks": ["Built Sudoku algorithm", "Designed user interface", "Added validation system"],
+        "ProjectTasks": ["Built Sudoku algorithm", "Designed user interface", "Added validation system", "Created grid generator", "Responsive UI/UX"],
         "ProjectTags": ["Challenge", "Singleplayer", "Strategy"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/Sudoku48h.png",
