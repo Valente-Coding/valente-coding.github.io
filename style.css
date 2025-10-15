@@ -30,7 +30,11 @@ body {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(90deg,rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.9) 20%, rgba(255, 255, 255, 0) 100%);
+    background: RGBA(0, 0, 0, 0.95);
+    background: -webkit-linear-gradient(90deg,rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(255, 255, 255, 0) 40%);
+    background: -moz-linear-gradient(90deg,rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(255, 255, 255, 0) 40%);
+    background: linear-gradient(90deg,rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(255, 255, 255, 0) 40%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000F2", endColorstr="#FFFFFF00", GradientType=0);
 }
 
 .BackgroundVideoFade {
@@ -120,7 +124,6 @@ body {
 .VideoInfoDesc {
     width: 30vw;
     font-size: 2vh;
-    text-align: justify;
 }
 
 .VideoInfoButtons {
@@ -211,6 +214,12 @@ body {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     padding-left: 4vw;
+
+    background: RGBA(0, 0, 0, 0.95);
+    background: -webkit-linear-gradient(0deg,rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 85%, rgba(255, 255, 255, 0) 100%);
+    background: -moz-linear-gradient(0deg,rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 85%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(0deg,rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 85%, rgba(255, 255, 255, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000F2", endColorstr="#FFFFFF00", GradientType=0);
 }
 
 .ProjectsTimelineList::after {
@@ -233,6 +242,10 @@ body {
 
 .ProjectTimelineLineProgress {
     height: 100%;
+}
+
+.ProjectTimelineCard.ActiveProjectCard:hover .ProjectTimelineLineProgress {
+    animation-play-state: paused;
 }
 
 .ProjectTimelineCard.ActiveProjectCard .ProjectTimelineLineProgress {
@@ -297,9 +310,11 @@ body {
 
 .ProjectTimelineGameTags {
     display: grid;
-    row-gap: 0.5vh;
+    grid-auto-flow: column;
+    column-gap: 0.5vw;
     align-content: start;
     font-size: 1.1vh;
+    justify-content: start;
 }
 
 .ProjectTimelineGameTags span {
@@ -308,6 +323,16 @@ body {
     background-color: white;
     padding: 0.2vh 0.5vh;
     border-radius: 0.2vh;
+}
+
+.ProjectTimelineGameTasks {
+    list-style: none;
+    line-height: 1.5vh;
+}
+
+.ProjectTimelineGameTasks li {
+    margin-bottom: 1vh;
+    font-size: 1.2vh;
 }
 
 .ProjectTimelineSoftwareLogos {

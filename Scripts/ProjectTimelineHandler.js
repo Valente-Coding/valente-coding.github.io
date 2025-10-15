@@ -3,6 +3,7 @@ var Projects = [
     {
         "ProjectName": "Venci's Adventures",
         "ProjectDescription": "Dive into the world of Vencis and tackle cybersecurity challenges where mastering complex topics becomes effortlessly engaging. Let's game, learn, and secure!",
+        "ProjectTasks": ["Built UI minigames", "Created production tools", "Integrated 3D assets", "Redesigned audio system"],
         "ProjectTags": ["Internship", "Singleplayer", "eLearning"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/VencisAdventures.png",
@@ -13,6 +14,7 @@ var Projects = [
     {
         "ProjectName": "Mar Made Sushi",
         "ProjectDescription": "Mar Made Sushi is a fun multiplayer prototype where players must work together to manage a restaurant. Collaborate with your teammates to fish for ingredients, cook delicious dishes, and host clients efficiently. Teamwork and coordination are key to keeping the restaurant running smoothly and satisfying your customers.",
+        "ProjectTasks": ["Built core gameplay", "Added multiplayer support", "Created order system", "Designed fishing mechanics"],
         "ProjectTags": ["University Project", "Online Multiplayer", "Strategy"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/MarMadeSushi.png",
@@ -23,6 +25,7 @@ var Projects = [
     {
         "ProjectName": "Deep Anomaly",
         "ProjectDescription": "Deep Anomaly is a local multiplayer party game where players must compete to catch the most fish avoiding the ones with anomalies.",
+        "ProjectTasks": ["Built game logic", "Added local multiplayer", "Created fishing system", "Designed scoring system"],
         "ProjectTags": ["Game Jam", "Local Multiplayer", "Party"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/DeepAnomaly.png",
@@ -33,6 +36,7 @@ var Projects = [
     {
         "ProjectName": "Mix & Serve",
         "ProjectDescription": "In Mix & Serve you impersonate a bartender in a busy bar. You must quickly mix and serve drinks to your customers while managing your time and resources effectively. Your goal is to have enough money to pay your rent at the end of the day.",
+        "ProjectTasks": ["Built game mechanics", "Created mixing system", "Designed customer AI"],
         "ProjectTags": ["Game Jam","Singleplayer", "Simulation"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/MixAndServe.png",
@@ -43,6 +47,7 @@ var Projects = [
     {
         "ProjectName": "Comedy Showdown",
         "ProjectDescription": "Your goal is to write your own jokes to different people based on their likings. Each person has a different sense of humor, so you must choose the right joke to make them laugh. If you tell a joke that they don't like, they will get angry. If you fail at least 3 times, you lose the game.",
+        "ProjectTasks": ["Built game logic", "Created dynamic joke system", "Designed character AI"],
         "ProjectTags": ["Game Jam", "Singleplayer", "Comedy"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/ComedyShowdown.png",
@@ -53,6 +58,7 @@ var Projects = [
     {
         "ProjectName": "Sudoku 48H",
         "ProjectDescription": "Sudoku48H is a project developed as part of a 48-hour challenge to test the developer's skills. The objective was to create a functional Sudoku game in Unity without referencing online resources. The project was completed in under 14 hours, with a significant portion of time spent refining the UI rather than the core game logic.",
+        "ProjectTasks": ["Built Sudoku algorithm", "Designed user interface", "Added validation system"],
         "ProjectTags": ["Challenge", "Singleplayer", "Strategy"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/Sudoku48h.png",
@@ -61,6 +67,8 @@ var Projects = [
         "ProjectSourceLink": "https://kofkof.itch.io/sudoku-48h",
     }
 ]
+
+var CurrentDisplayedProject = 0;
 
 function LoadProjects() {
     let l_timelineContainer = document.getElementsByClassName("ProjectsTimelineList")[0];
@@ -82,7 +90,7 @@ function LoadProjects() {
                 '</div>'+
                 '<div class="ProjectTimelineInfoContainer">'+
                     '<div class="ProjectTimelineTitle bebas-neue-regular">' + l_project.ProjectName + '</div>'+
-                    '<div class="ProjectTimelineGameTags martel-sans-bold"><span>' + l_project.ProjectTags.join('</span><span>') + '</span></div>'+
+                    '<ul class="ProjectTimelineGameTasks martel-sans-bold"><li>' + l_project.ProjectTasks.join('</li><li>') + '</li></ul>'+
                 '</div>'+
             '</div>'+
         '</div>';
@@ -100,6 +108,7 @@ function DisplayProject(p_index) {
 
     // Update the project display section
     document.getElementsByClassName("VideoInfoTitle")[0].innerText = l_project.ProjectName;
+    document.getElementsByClassName("ProjectTimelineGameTags")[0].innerHTML = l_project.ProjectTags.map(tag => '<span>' + tag + '</span>').join('');
     document.getElementsByClassName("VideoInfoDesc")[0].innerText = l_project.ProjectDescription;
     document.getElementsByClassName("VideoInfoPlayButton")[0].dataset.video = l_project.ProjectVideoLink;
     document.getElementsByClassName("VideoInfoMoreButton")[0].dataset.source = l_project.ProjectSourceLink;
@@ -109,6 +118,7 @@ function DisplayProject(p_index) {
 
     // Remove active class from previous active card
     document.getElementsByClassName("ActiveProjectCard")[0]?.classList.remove("ActiveProjectCard");
+
 
     // Add BeforeActiveProjectCard class to all previous cards
     let l_cards = document.getElementsByClassName("ProjectTimelineCard");
@@ -121,6 +131,9 @@ function DisplayProject(p_index) {
     }
 
     l_cards[p_index].classList.add("ActiveProjectCard");
+
+    l_cards[CurrentDisplayedProject].getElementsByClassName("ProjectTimelineLineProgress")[0].removeEventListener("animationend", LoadNextProject, false); // Remove event listener from previous card
+    l_cards[p_index].getElementsByClassName("ProjectTimelineLineProgress")[0].addEventListener("animationend", LoadNextProject, false); // Add event listener to new active card
     
     ScrollIntoViewHorizontally(document.getElementsByClassName("ProjectsTimelineList")[0], l_cards[p_index]);
 
@@ -132,13 +145,7 @@ function DisplayProject(p_index) {
         clearInterval(window.projectInterval);
     }
 
-    window.projectInterval = setInterval(() => {
-        document.getElementsByClassName("VideoInfoContainer")[0].classList.add("Unloaded")
-        document.getElementsByClassName("BackgroundVideoFade")[0].classList.add("ActiveFade");
-        setTimeout(() => {
-            LoadProject(p_index == Projects.length - 1 ? 0 : p_index + 1);
-        }, 1000);
-    }, TimeBetweenProjects);
+    CurrentDisplayedProject = p_index;
 }
 
 function LoadProject(p_index) {
@@ -166,6 +173,15 @@ function LoadProject(p_index) {
         document.getElementsByClassName("VideoInfoContainer")[0].classList.remove("Unloaded")
         DisplayProject(p_index);
     }, false); 
+}
+
+function LoadNextProject() {
+    document.getElementsByClassName("VideoInfoContainer")[0].classList.add("Unloaded")
+    document.getElementsByClassName("BackgroundVideoFade")[0].classList.add("ActiveFade");
+
+    setTimeout(() => {
+        LoadProject(CurrentDisplayedProject == Projects.length - 1 ? 0 : CurrentDisplayedProject + 1);
+    }, 1000);
 }
 
 function ReloadCurrentProject(p_index) {
