@@ -3,7 +3,7 @@ var Projects = [
     {
         "ProjectName": "Venci's Adventures",
         "ProjectDescription": "Dive into the world of Vencis and tackle cybersecurity challenges where mastering complex topics becomes effortlessly engaging. Let's game, learn, and secure!",
-        "ProjectTasks": ["Built UI minigames", "Created production tools", "Integrated 3D assets", "Redesigned audio system"],
+        "ProjectTasks": ["Built UI minigames", "Created production tools", "Integrated 2D assets", "Redesigned audio system"],
         "ProjectTags": ["Internship", "Singleplayer", "eLearning"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/VencisAdventures.png",
