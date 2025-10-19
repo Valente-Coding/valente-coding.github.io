@@ -232,16 +232,24 @@ body {
 .ProjectTimelineCard {
     width: 20vw;
     height: 100%;
+    cursor: pointer;
 }
 
 .ProjectTimelineLine {
     width: 100%;
     height: 0.5vh;
+    border-radius: 0.5vh;
     background-color: gray;
+    transition: height 0.3s;
+}
+
+.ProjectTimelineCard:hover .ProjectTimelineLine {
+    height: 0.2vh;
 }
 
 .ProjectTimelineLineProgress {
     height: 100%;
+    border-radius: 0.5vh;
 }
 
 .ProjectTimelineCard.ActiveProjectCard:hover .ProjectTimelineLineProgress {
