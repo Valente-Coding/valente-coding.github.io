@@ -113,8 +113,8 @@ function DisplayProject(p_index) {
     document.getElementsByClassName("VideoInfoPlayButton")[0].dataset.video = l_project.ProjectVideoLink;
     document.getElementsByClassName("VideoInfoMoreButton")[0].dataset.source = l_project.ProjectSourceLink;
     
-    document.getElementsByClassName("PlayVideoText")[0].innerHTML = l_project.ProjectVideoLink == "" ? "N/A" : "Play";
-    document.getElementsByClassName("MoreText")[0].innerHTML = l_project.ProjectSourceLink == "" ? "N/A" : "More Info";
+    document.getElementsByClassName("VideoInfoPlayButton")[0].style.display = l_project.ProjectVideoLink == "" ? "none" : "grid";
+    document.getElementsByClassName("VideoInfoMoreButton")[0].style.display = l_project.ProjectSourceLink == "" ? "none" : "grid";
 
     // Remove active class from previous active card
     document.getElementsByClassName("ActiveProjectCard")[0]?.classList.remove("ActiveProjectCard");
