@@ -281,9 +281,8 @@ function PreloadVideo(p_Index) {
         .then(blob => {
             PreloadedVideos[p_Index] = URL.createObjectURL(blob);
 
-            if (p_Index === 0) {
-                // If it's the first video, load it immediately
-                LoadProject(0);
+            if (ProjectToDisplay === p_Index) {
+                LoadProject(ProjectToDisplay);
             }
 
             PreloadVideo(p_Index + 1);
