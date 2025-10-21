@@ -1,4 +1,4 @@
-const PageTags = ["HomePageContainer", "ResumePageContainer"];
+const PageTags = ["HomePageContainer", "ResumePageContainer", "AboutMePageContainer"];
 var TopBarContainer = undefined;
 
 function ShowPage(p_selectedTopBarButton, p_pageTag) {
