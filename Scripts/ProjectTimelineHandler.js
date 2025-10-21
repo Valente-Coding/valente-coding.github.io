@@ -69,7 +69,8 @@ var Projects = [
     }
 ]
 
-var CurrentDisplayedProject = 0;
+var CurrentDisplayedProject = -1;
+var ProjectToDisplay = 0;
 
 function LoadProjects() {
     let l_timelineContainer = document.getElementsByClassName("ProjectsTimelineList")[0];
@@ -131,7 +132,9 @@ function DisplayProject(p_index) {
 
     l_cards[p_index].classList.add("ActiveProjectCard");
 
-    l_cards[CurrentDisplayedProject].getElementsByClassName("ProjectTimelineLineProgress")[0].removeEventListener("animationend", LoadNextProject, false); // Remove event listener from previous card
+    if (CurrentDisplayedProject >= 0)
+        l_cards[CurrentDisplayedProject].getElementsByClassName("ProjectTimelineLineProgress")[0].removeEventListener("animationend", LoadNextProject, false); // Remove event listener from previous card
+    
     l_cards[p_index].getElementsByClassName("ProjectTimelineLineProgress")[0].addEventListener("animationend", LoadNextProject, false); // Add event listener to new active card
     
     ScrollIntoViewHorizontally(document.getElementsByClassName("ProjectsTimelineList")[0], l_cards[p_index]);
@@ -163,16 +166,20 @@ function LoadProject(p_index) {
 
     l_video.src = PreloadedVideos[p_index] //|| "https://valente-coding.github.io/" + l_project.ProjectVideo;
 
-    RecreateNode(l_video);
+    ProjectToDisplay = p_index;
+}
 
-    l_video.oncanplay = () => {
-        l_video.play();
-        DisplayProject(p_index);
+function CanPlayVideo() {
+    if (ProjectToDisplay == CurrentDisplayedProject) return;
 
-        document.getElementsByClassName("WebsiteLoadingScreen")[0].classList.remove("Active");
-        document.getElementsByClassName("ProjectsTimelineContainer")[0].classList.remove("Unloaded")
-        document.getElementsByClassName("VideoInfoContainer")[0].classList.remove("Unloaded")
-    }; 
+    var l_video = document.getElementsByClassName("BackgroundVideo")[0]
+
+    l_video.play();
+    DisplayProject(ProjectToDisplay);
+
+    document.getElementsByClassName("WebsiteLoadingScreen")[0].classList.remove("Active");
+    document.getElementsByClassName("ProjectsTimelineContainer")[0].classList.remove("Unloaded")
+    document.getElementsByClassName("VideoInfoContainer")[0].classList.remove("Unloaded")
 }
 
 function LoadNextProject() {
@@ -257,6 +264,8 @@ function OpenMoreInfo() {
 }
 
 function PreloadAllVideos() {
+    document.getElementsByClassName("BackgroundVideo")[0].oncanplay = CanPlayVideo;
+
     PreloadVideo(0);
 }
 
