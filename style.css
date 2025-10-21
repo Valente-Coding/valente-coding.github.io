@@ -336,6 +336,7 @@ body {
 .ProjectTimelineGameTasks {
     list-style: none;
     line-height: 1.5vh;
+    margin-top: 1vh;
 }
 
 .ProjectTimelineGameTasks li {

@@ -1,4 +1,5 @@
 var TimeBetweenProjects = 15000; // Time in milliseconds between automatic project changes
+var PreloadedVideos = {}; // Object to store preloaded video blobs
 var Projects = [ 
     {
         "ProjectName": "Venci's Adventures",
@@ -99,8 +100,6 @@ function LoadProjects() {
     }
 
     l_timelineContainer.addEventListener('wheel', TransformScrollSideways);
-
-    LoadProject(0);
 }
 
 function DisplayProject(p_index) {
@@ -162,17 +161,18 @@ function LoadProject(p_index) {
         return;
     }
 
-    l_video.src = "https://valente-coding.github.io/" + l_project.ProjectVideo;
-    l_video.load();
+    l_video.src = PreloadedVideos[p_index] //|| "https://valente-coding.github.io/" + l_project.ProjectVideo;
 
     RecreateNode(l_video);
 
-    l_video.addEventListener('loadeddata', function() {
+    l_video.oncanplay = () => {
+        l_video.play();
+        DisplayProject(p_index);
+
         document.getElementsByClassName("WebsiteLoadingScreen")[0].classList.remove("Active");
         document.getElementsByClassName("ProjectsTimelineContainer")[0].classList.remove("Unloaded")
         document.getElementsByClassName("VideoInfoContainer")[0].classList.remove("Unloaded")
-        DisplayProject(p_index);
-    }, false); 
+    }; 
 }
 
 function LoadNextProject() {
@@ -256,7 +256,38 @@ function OpenMoreInfo() {
         window.open(l_sourceLink, '_blank').focus();
 }
 
+function PreloadAllVideos() {
+    PreloadVideo(0);
+}
+
+function PreloadVideo(p_Index) {
+    if (p_Index >= Projects.length) {
+        return;
+    }
+
+    const videoUrl = "https://valente-coding.github.io/" + Projects[p_Index].ProjectVideo;
+    
+    fetch(videoUrl)
+        .then(response => response.blob())
+        .then(blob => {
+            PreloadedVideos[p_Index] = URL.createObjectURL(blob);
+
+            if (p_Index === 0) {
+                // If it's the first video, load it immediately
+                LoadProject(0);
+            }
+
+            PreloadVideo(p_Index + 1);
+        })
+        .catch(error => {
+            console.error(`Failed to preload video ${p_Index}:`, error);
+        });
+}
+
 window.addEventListener("load", (event) => {
     if (window.innerWidth > 1000)
+    {
+        PreloadAllVideos();
         LoadProjects();
+    }
 });
