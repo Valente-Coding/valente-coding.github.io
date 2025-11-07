@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Total Section -->
+        <div class="total-section">
+            <div class="total-label">Total</div>
+            <div class="total-amount">€<span id="total">0.00</span></div>
+            <div class="buttons-container">
+                <button class="clear-btn" onclick="clearCart()">Clear All</button>
+                <button class="ticket-btn"><span id="tickets350">0x</span> 3.50€</button>
+                <button class="ticket-btn"><span id="tickets250">0x</span> 2.50€</button>
+            </div>
+        </div>
+
+        <!-- Horizontal Scroll Container -->
+        <div class="horizontal-container">
+            <!-- Products Section -->
+            <div class="products-section">
+                <div class="section-title">Products</div>
+                <div class="products-grid" id="products-grid"></div>
+            </div>
+
+            <!-- Cart Section -->
+            <div class="cart-section">
+                <div class="cart-title">
+                    Cart
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="cart-items" id="cart-items">
+                    <div class="empty-cart">No items added yet</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

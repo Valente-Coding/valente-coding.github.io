@@ -514,43 +514,47 @@ body {
 
 .AboutMeContainer {
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
     display: grid;
     place-items: center;
     background-color: black;
+    overflow: scroll;
 }
 
 .AboutMeTitle {
+    width: 100%;
+    height: 12vh;
+    padding-top: 30vh;
+    font-size: 7vh;
+    color: white;
+    user-select: none;
+    text-align: center;
     display: grid;
-    grid-auto-flow: column;
     place-items: center;
-    overflow: hidden;
-    font-size: 30vh;
-    color: rgb(30, 30, 30);
-    user-select: none;
+    grid-auto-flow: column;
     justify-content: center;
 }
 
-.AboutMeTitleRolesTable {
-    width: 0vw;
-    overflow: hidden;
-    display: grid;
-    grid-auto-flow: row;
-    margin-top: -3vh;
-    justify-content: center;
-    transition: width 0.5s;
+.AboutMeTitle::after {
+    width: 0.1vw;
+    height: 54%;
+    margin-top: -1vh;
+    margin-left: 0.2vw;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    content: '';
+    background-color: white;
+    animation: AboutMeTextFlash 1s infinite;
 }
 
-.AboutMeTitle:hover .AboutMeTitleRolesTable {
-    width: 27vw;
-}
-
-.AboutMeTitleRolesTable span {
-    height: 7vh;
-    font-size: 10vh;
-    color: rgb(190, 190, 190);
+.AboutMeSubTitle {
+    width: 100%;
+    height: 8vh;
+    margin-top: 2vh;
+    font-size: 3vh;
+    color: gray;
     user-select: none;
-    text-wrap-mode: nowrap;
-    line-height: 8vh;
-    text-align-last: justify;
+    text-align: center;
 }
