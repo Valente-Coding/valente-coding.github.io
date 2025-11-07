@@ -138,5 +138,108 @@ function updateCart() {
     }
 }
 
+function saveCart() {
+    if (cart.length === 0) {
+        alert('Cart is empty. Add items before saving.');
+        return;
+    }
+
+    // Check if Firebase is initialized
+    if (!window.firebaseDB) {
+        console.error('Firebase is not initialized');
+        alert('Database connection not available');
+        return;
+    }
+
+    const db = window.firebaseDB;
+    const { collection, addDoc, serverTimestamp, doc, setDoc, getDoc, updateDoc, increment } = window.firebaseModules;
+
+    // Calculate cart totals
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    // Prepare cart data
+    const cartData = {
+        timestamp: serverTimestamp(),
+        total: parseFloat(total.toFixed(2)),
+        totalItems: totalItems,
+        items: cart.map(item => ({
+            productId: item.id,
+            name: item.name,
+            icon: item.icon,
+            price: item.price,
+            quantity: item.quantity,
+            subtotal: parseFloat((item.price * item.quantity).toFixed(2))
+        }))
+    };
+
+    // Save to Firebase
+    Promise.all([
+        // Save individual cart transaction
+        addDoc(collection(db, 'carts'), cartData),
+        
+        // Update product sales statistics
+        ...cart.map(item => {
+            const productRef = doc(db, 'products', item.id.toString());
+            return getDoc(productRef).then(docSnap => {
+                if (docSnap.exists()) {
+                    // Update existing product stats
+                    return updateDoc(productRef, {
+                        totalQuantitySold: increment(item.quantity),
+                        totalRevenue: increment(parseFloat((item.price * item.quantity).toFixed(2))),
+                        lastSold: serverTimestamp()
+                    });
+                } else {
+                    // Create new product stats document
+                    return setDoc(productRef, {
+                        productId: item.id,
+                        name: item.name,
+                        icon: item.icon,
+                        price: item.price,
+                        totalQuantitySold: item.quantity,
+                        totalRevenue: parseFloat((item.price * item.quantity).toFixed(2)),
+                        firstSold: serverTimestamp(),
+                        lastSold: serverTimestamp()
+                    });
+                }
+            });
+        }),
+
+        // Update daily summary
+        (async () => {
+            const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+            const summaryRef = doc(db, 'dailySummary', today);
+            const summarySnap = await getDoc(summaryRef);
+            
+            if (summarySnap.exists()) {
+                return updateDoc(summaryRef, {
+                    totalSales: increment(total),
+                    totalTransactions: increment(1),
+                    totalItemsSold: increment(totalItems),
+                    lastUpdate: serverTimestamp()
+                });
+            } else {
+                return setDoc(summaryRef, {
+                    date: today,
+                    totalSales: total,
+                    totalTransactions: 1,
+                    totalItemsSold: totalItems,
+                    lastUpdate: serverTimestamp()
+                });
+            }
+        })()
+    ])
+    .then(() => {
+        alert('Cart saved successfully! ✅');
+        // Clear cart after successful save
+        cart = [];
+        updateCart();
+    })
+    .catch((error) => {
+        console.error('Error saving cart:', error);
+        alert('Error saving cart. Please try again.');
+    });
+}
+
 // Initialize the app
 initProducts();
