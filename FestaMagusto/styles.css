@@ -103,6 +103,7 @@ body {
 /* Horizontal Scroll Container */
 .horizontal-container {
     display: flex;
+    overflow-y: hidden;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     flex: 1;
@@ -292,7 +293,7 @@ body {
     gap: 15px;
     overflow-y: auto;
     flex: 1;
-    padding-bottom: 20px;
+    padding-bottom: 5vh;
 }
 
 .products-grid::-webkit-scrollbar {
