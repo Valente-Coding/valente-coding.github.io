@@ -309,8 +309,8 @@ async function loadAnalytics() {
     const endTimeInput = document.getElementById('end-time');
     const analyticsProductsDiv = document.getElementById('analytics-products');
     const totalRevenueElement = document.getElementById('total-revenue');
-    const totalCashRevenueElement = document.getElementById('total-cash-transactions');
-    const totalBankRevenueElement = document.getElementById('total-bank-transactions');
+    const totalCashRevenueElement = document.getElementById('total-cash-revenue');
+    const totalBankRevenueElement = document.getElementById('total-bank-revenue');
     const totalItemsSoldElement = document.getElementById('total-items-sold');
 
     const startDate = startDateInput.value;
@@ -434,8 +434,8 @@ async function loadAnalytics() {
 function clearAnalytics() {
     const analyticsProductsDiv = document.getElementById('analytics-products');
     const totalRevenueElement = document.getElementById('total-revenue');
-    const totalCashRevenueElement = document.getElementById('total-cash-transactions');
-    const totalBankRevenueElement = document.getElementById('total-bank-transactions');
+    const totalCashRevenueElement = document.getElementById('total-cash-revenue');
+    const totalBankRevenueElement = document.getElementById('total-bank-revenue');
     const totalItemsSoldElement = document.getElementById('total-items-sold');
 
     // Reset all summary values

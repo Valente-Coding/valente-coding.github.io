@@ -550,11 +550,11 @@ body {
     background: linear-gradient(135deg, #4badbf 0%, #57cde3 100%);
 }
 
-.total-cash-transactions-card {
+.total-cash-revenue-card {
     background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);
 }
 
-.total-bank-transactions-card {
+.total-bank-revenue-card {
     background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
 }
 
