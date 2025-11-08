@@ -151,6 +151,56 @@ function saveCart() {
         return;
     }
 
+    // Show payment method modal
+    showPaymentMethodModal();
+}
+
+function showPaymentMethodModal() {
+    // Create modal overlay
+    const modal = document.createElement('div');
+    modal.className = 'payment-modal-overlay';
+    modal.innerHTML = `
+        <div class="payment-modal">
+            <div class="payment-modal-title">Select Payment Method</div>
+            <div class="payment-modal-buttons">
+                <button class="payment-method-btn cash-btn" onclick="saveCartWithPaymentMethod('Cash')">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <span>Cash</span>
+                </button>
+                <button class="payment-method-btn bank-btn" onclick="saveCartWithPaymentMethod('Bank')">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Bank</span>
+                </button>
+            </div>
+            <button class="payment-modal-cancel" onclick="closePaymentModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Add click outside to close
+    setTimeout(() => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closePaymentModal();
+            }
+        });
+    }, 100);
+}
+
+function closePaymentModal() {
+    const modal = document.querySelector('.payment-modal-overlay');
+    if (modal) {
+        modal.remove();
+    }
+}
+
+function saveCartWithPaymentMethod(paymentMethod) {
+    // Close modal
+    closePaymentModal();
+
     const db = window.firebaseDB;
     const { collection, addDoc, serverTimestamp, doc, setDoc, getDoc, updateDoc, increment } = window.firebaseModules;
 
@@ -158,11 +208,12 @@ function saveCart() {
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-    // Prepare cart data
+    // Prepare cart data with payment method
     const cartData = {
         timestamp: serverTimestamp(),
         total: parseFloat(total.toFixed(2)),
         totalItems: totalItems,
+        paymentMethod: paymentMethod, // Add payment method
         items: cart.map(item => ({
             productId: item.id,
             name: item.name,
@@ -205,17 +256,22 @@ function saveCart() {
             });
         }),
 
-        // Update daily summary
+        // Update daily summary with payment method tracking
         (async () => {
             const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
             const summaryRef = doc(db, 'dailySummary', today);
             const summarySnap = await getDoc(summaryRef);
+            
+            const paymentMethodField = paymentMethod === 'Cash' ? 'cashTransactions' : 'bankTransactions';
+            const paymentMethodSalesField = paymentMethod === 'Cash' ? 'cashSales' : 'bankSales';
             
             if (summarySnap.exists()) {
                 return updateDoc(summaryRef, {
                     totalSales: increment(total),
                     totalTransactions: increment(1),
                     totalItemsSold: increment(totalItems),
+                    [paymentMethodField]: increment(1),
+                    [paymentMethodSalesField]: increment(total),
                     lastUpdate: serverTimestamp()
                 });
             } else {
@@ -224,13 +280,17 @@ function saveCart() {
                     totalSales: total,
                     totalTransactions: 1,
                     totalItemsSold: totalItems,
+                    cashTransactions: paymentMethod === 'Cash' ? 1 : 0,
+                    cashSales: paymentMethod === 'Cash' ? total : 0,
+                    bankTransactions: paymentMethod === 'Bank' ? 1 : 0,
+                    bankSales: paymentMethod === 'Bank' ? total : 0,
                     lastUpdate: serverTimestamp()
                 });
             }
         })()
     ])
     .then(() => {
-        alert('Cart saved successfully! ✅');
+        alert(`Cart saved successfully! ✅\nPayment: ${paymentMethod}`);
         // Clear cart after successful save
         cart = [];
         updateCart();
@@ -249,7 +309,8 @@ async function loadAnalytics() {
     const endTimeInput = document.getElementById('end-time');
     const analyticsProductsDiv = document.getElementById('analytics-products');
     const totalRevenueElement = document.getElementById('total-revenue');
-    const totalTransactionsElement = document.getElementById('total-transactions');
+    const totalCashTransactionsElement = document.getElementById('total-cash-transactions');
+    const totalBankTransactionsElement = document.getElementById('total-bank-transactions');
     const totalItemsSoldElement = document.getElementById('total-items-sold');
 
     const startDate = startDateInput.value;
@@ -298,15 +359,22 @@ async function loadAnalytics() {
 
         // Aggregate data
         let totalRevenue = 0;
-        let totalTransactions = 0;
+        let totalCashTransactions = 0;
+        let totalBankTransactions = 0;
         let totalItemsSold = 0;
         const productSales = {};
 
         querySnapshot.forEach((doc) => {
             const cartData = doc.data();
             totalRevenue += cartData.total || 0;
-            totalTransactions++;
             totalItemsSold += cartData.totalItems || 0;
+
+            // Count payment methods
+            if (cartData.paymentMethod === 'Cash') {
+                totalCashTransactions++;
+            } else if (cartData.paymentMethod === 'Bank') {
+                totalBankTransactions++;
+            }
 
             // Aggregate product sales
             if (cartData.items) {
@@ -329,7 +397,8 @@ async function loadAnalytics() {
 
         // Update summary cards
         totalRevenueElement.textContent = `€${totalRevenue.toFixed(2)}`;
-        totalTransactionsElement.textContent = totalTransactions;
+        totalCashTransactionsElement.textContent = totalCashTransactions;
+        totalBankTransactionsElement.textContent = totalBankTransactions;
         totalItemsSoldElement.textContent = totalItemsSold;
 
         // Display product sales
@@ -358,6 +427,24 @@ async function loadAnalytics() {
         analyticsProductsDiv.innerHTML = '<div class="empty-analytics">Error loading analytics data. Please try again.</div>';
         alert('Error loading analytics data');
     }
+}
+
+// Clear analytics display
+function clearAnalytics() {
+    const analyticsProductsDiv = document.getElementById('analytics-products');
+    const totalRevenueElement = document.getElementById('total-revenue');
+    const totalCashTransactionsElement = document.getElementById('total-cash-transactions');
+    const totalBankTransactionsElement = document.getElementById('total-bank-transactions');
+    const totalItemsSoldElement = document.getElementById('total-items-sold');
+
+    // Reset all summary values
+    totalRevenueElement.textContent = '€0.00';
+    totalCashTransactionsElement.textContent = '0';
+    totalBankTransactionsElement.textContent = '0';
+    totalItemsSoldElement.textContent = '0';
+
+    // Clear product analytics
+    analyticsProductsDiv.innerHTML = '<div class="empty-analytics">Select a date range and click Load to view sales data</div>';
 }
 
 // Set default dates on page load
