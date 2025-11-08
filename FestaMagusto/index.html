@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Manager</title>
+    <title>Gestor de Produtos</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -25,35 +25,35 @@
         <div class="horizontal-container">
             <!-- Products Section -->
             <div class="products-section">
-                <div class="section-title">Products</div>
+                <div class="section-title">Produtos</div>
                 <div class="products-grid" id="products-grid"></div>
             </div>
 
             <!-- Cart Section -->
             <div class="cart-section">
                 <div class="cart-title">
-                    Cart
+                    Carrinho
                     <span class="cart-count" id="cart-count">0</span>
                 </div>
                 <div class="cart-items" id="cart-items">
-                    <div class="empty-cart">No items added yet</div>
+                    <div class="empty-cart">Ainda não foram adicionados itens</div>
                 </div>
             </div>
 
             <!-- Analytics Section -->
             <div class="analytics-section">
                 <div class="analytics-header">
-                    <div class="section-title">Sales Analytics</div>
+                    <div class="section-title">Análise de Vendas</div>
                     <div class="date-filters">
                         <div class="date-input-group">
-                            <label for="start-date">From:</label>
+                            <label for="start-date">De:</label>
                             <div class="align-date-and-time">
                                 <input type="date" id="start-date" />
                                 <input type="time" id="start-time" value="00:00" />
                             </div>
                         </div>
                         <div class="date-input-group">
-                            <label for="end-date">To:</label>
+                            <label for="end-date">Até:</label>
                             <div class="align-date-and-time">
                                 <input type="date" id="end-date" />
                                 <input type="time" id="end-time" value="23:59" />
@@ -61,10 +61,10 @@
                         </div>
                         <div class="data-button-group">
                             <button class="load-analytics-btn" onclick="loadAnalytics()">
-                                <i class="fa-solid fa-chart-line"></i> Load
+                                <i class="fa-solid fa-chart-line"></i> Carregar
                             </button>
                             <button class="clear-analytics-btn" onclick="clearAnalytics()">
-                                <i class="fa-solid fa-eraser"></i> Clear
+                                <i class="fa-solid fa-eraser"></i> Limpar
                             </button>
                         </div>
                     </div>
@@ -72,25 +72,33 @@
                 
                 <div class="analytics-summary" id="analytics-summary">
                     <div class="summary-card total-revenue-card">
-                        <div class="summary-label">Receita Total</div>
+                        <div class="align-summary-label">
+                            <div class="summary-label">Receita Total</div>
+                        </div>
                         <div class="summary-value" id="total-revenue">€0.00</div>
                     </div>
                     <div class="summary-card total-cash-revenue-card">
-                        <div class="summary-label">Receita em Dinheiro</div>
+                        <div class="align-summary-label">
+                            <div class="summary-label">Receita em Dinheiro</div>
+                        </div>
                         <div class="summary-value" id="total-cash-revenue">€0.00</div>
                     </div>
                     <div class="summary-card total-bank-revenue-card">
-                        <div class="summary-label">Receita em Cartão</div>
+                        <div class="align-summary-label">
+                            <div class="summary-label">Receita em Cartão</div>
+                        </div>
                         <div class="summary-value" id="total-bank-revenue">€0.00</div>
                     </div>
                     <div class="summary-card total-items-sold-card">
-                        <div class="summary-label">Total de Itens Vendidos</div>
+                        <div class="align-summary-label">
+                            <div class="summary-label">Total de Itens Vendidos</div>
+                        </div>
                         <div class="summary-value" id="total-items-sold">0</div>
                     </div>
                 </div>
 
                 <div class="analytics-products" id="analytics-products">
-                    <div class="empty-analytics">Select a date range and click Load to view sales data</div>
+                    <div class="empty-analytics">Selecione um intervalo de datas e clique em Carregar para ver os dados de vendas</div>
                 </div>
             </div>
         </div>

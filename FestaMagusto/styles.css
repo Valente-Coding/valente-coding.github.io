@@ -449,7 +449,8 @@ body {
 .data-button-group {
     display: grid;
     grid-auto-flow: column;
-    gap: 10px;
+    grid-auto-columns: 48% 48%;
+    gap: 4%;
 }
 
 .load-analytics-btn {
@@ -566,14 +567,19 @@ body {
     grid-area: 2 / 2 / 3 / 3;
 } */
 
+.align-summary-label {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border-right: white 0.5vw dashed;
+}
+
 .summary-label {
     font-size: 18px;
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-right: white 0.5vw dashed;
-    padding: 1.5vh 0px;
-    width: 100%;
 }
 
 .summary-value {
