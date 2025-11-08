@@ -1,0 +1,89 @@
+﻿2025-11-08T00:40:49.4098636Z ##[group]Run actions/checkout@v4
+2025-11-08T00:40:49.4099183Z with:
+2025-11-08T00:40:49.4099364Z   ref: main
+2025-11-08T00:40:49.4099552Z   submodules: recursive
+2025-11-08T00:40:49.4099823Z   repository: Valente-Coding/valente-coding.github.io
+2025-11-08T00:40:49.4100276Z   token: ***
+2025-11-08T00:40:49.4100462Z   ssh-strict: true
+2025-11-08T00:40:49.4100656Z   ssh-user: git
+2025-11-08T00:40:49.4100836Z   persist-credentials: true
+2025-11-08T00:40:49.4101080Z   clean: true
+2025-11-08T00:40:49.4101278Z   sparse-checkout-cone-mode: true
+2025-11-08T00:40:49.4101509Z   fetch-depth: 1
+2025-11-08T00:40:49.4101679Z   fetch-tags: false
+2025-11-08T00:40:49.4101884Z   show-progress: true
+2025-11-08T00:40:49.4102103Z   lfs: false
+2025-11-08T00:40:49.4102278Z   set-safe-directory: true
+2025-11-08T00:40:49.4102691Z ##[endgroup]
+2025-11-08T00:40:49.5175564Z Syncing repository: Valente-Coding/valente-coding.github.io
+2025-11-08T00:40:49.5177010Z ##[group]Getting Git version info
+2025-11-08T00:40:49.5177500Z Working directory is '/home/runner/work/valente-coding.github.io/valente-coding.github.io'
+2025-11-08T00:40:49.5178201Z [command]/usr/bin/git version
+2025-11-08T00:40:49.5268933Z git version 2.51.2
+2025-11-08T00:40:49.5295990Z ##[endgroup]
+2025-11-08T00:40:49.5310580Z Temporarily overriding HOME='/home/runner/work/_temp/a8858797-6d4e-4ed8-ac73-d140d542f9f3' before making global git config changes
+2025-11-08T00:40:49.5311650Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-08T00:40:49.5325019Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/valente-coding.github.io/valente-coding.github.io
+2025-11-08T00:40:49.5361951Z Deleting the contents of '/home/runner/work/valente-coding.github.io/valente-coding.github.io'
+2025-11-08T00:40:49.5365859Z ##[group]Initializing the repository
+2025-11-08T00:40:49.5370084Z [command]/usr/bin/git init /home/runner/work/valente-coding.github.io/valente-coding.github.io
+2025-11-08T00:40:49.5480080Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-11-08T00:40:49.5480688Z hint: is subject to change. To configure the initial branch name to use in all
+2025-11-08T00:40:49.5481219Z hint: of your new repositories, which will suppress this warning, call:
+2025-11-08T00:40:49.5481583Z hint:
+2025-11-08T00:40:49.5481890Z hint: 	git config --global init.defaultBranch <name>
+2025-11-08T00:40:49.5482208Z hint:
+2025-11-08T00:40:49.5482503Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-11-08T00:40:49.5483018Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-11-08T00:40:49.5483718Z hint:
+2025-11-08T00:40:49.5483947Z hint: 	git branch -m <name>
+2025-11-08T00:40:49.5484192Z hint:
+2025-11-08T00:40:49.5484841Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-11-08T00:40:49.5486019Z Initialized empty Git repository in /home/runner/work/valente-coding.github.io/valente-coding.github.io/.git/
+2025-11-08T00:40:49.5497259Z [command]/usr/bin/git remote add origin https://github.com/Valente-Coding/valente-coding.github.io
+2025-11-08T00:40:49.5531952Z ##[endgroup]
+2025-11-08T00:40:49.5532559Z ##[group]Disabling automatic garbage collection
+2025-11-08T00:40:49.5537246Z [command]/usr/bin/git config --local gc.auto 0
+2025-11-08T00:40:49.5564727Z ##[endgroup]
+2025-11-08T00:40:49.5565353Z ##[group]Setting up auth
+2025-11-08T00:40:49.5572396Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-08T00:40:49.5604074Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-08T00:40:49.5955384Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-08T00:40:49.5986193Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-08T00:40:49.6206607Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-11-08T00:40:49.6242153Z ##[endgroup]
+2025-11-08T00:40:49.6242879Z ##[group]Fetching the repository
+2025-11-08T00:40:49.6251652Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2025-11-08T00:40:55.6551359Z From https://github.com/Valente-Coding/valente-coding.github.io
+2025-11-08T00:40:55.6552108Z  * [new branch]      main       -> origin/main
+2025-11-08T00:40:55.6579950Z ##[endgroup]
+2025-11-08T00:40:55.6580344Z ##[group]Determining the checkout info
+2025-11-08T00:40:55.6587519Z [command]/usr/bin/git branch --list --remote origin/main
+2025-11-08T00:40:55.6612191Z   origin/main
+2025-11-08T00:40:55.6618148Z ##[endgroup]
+2025-11-08T00:40:55.6622698Z [command]/usr/bin/git sparse-checkout disable
+2025-11-08T00:40:55.6664217Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-11-08T00:40:55.6691513Z ##[group]Checking out the ref
+2025-11-08T00:40:55.6696303Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-11-08T00:40:55.9477310Z Switched to a new branch 'main'
+2025-11-08T00:40:55.9477941Z branch 'main' set up to track 'origin/main'.
+2025-11-08T00:40:55.9487569Z ##[endgroup]
+2025-11-08T00:40:55.9488181Z ##[group]Setting up auth for fetching submodules
+2025-11-08T00:40:55.9496349Z [command]/usr/bin/git config --global http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-11-08T00:40:55.9538020Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+2025-11-08T00:40:55.9570056Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+2025-11-08T00:40:55.9603135Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-110548330@github.com:
+2025-11-08T00:40:55.9628562Z ##[endgroup]
+2025-11-08T00:40:55.9628898Z ##[group]Fetching submodules
+2025-11-08T00:40:55.9632856Z [command]/usr/bin/git submodule sync --recursive
+2025-11-08T00:40:55.9858088Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2025-11-08T00:40:56.0083632Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
+2025-11-08T00:40:56.0312825Z ##[endgroup]
+2025-11-08T00:40:56.0313624Z ##[group]Persisting credentials for submodules
+2025-11-08T00:40:56.0320222Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+2025-11-08T00:40:56.0546915Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2025-11-08T00:40:56.0768847Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+2025-11-08T00:40:56.0989664Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-110548330@github.com:'
+2025-11-08T00:40:56.1204599Z ##[endgroup]
+2025-11-08T00:40:56.1243227Z [command]/usr/bin/git log -1 --format=%H
+2025-11-08T00:40:56.1265563Z 0a65840e37a5d7f4b0e023e17c0769408714fcc7

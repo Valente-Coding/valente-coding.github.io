@@ -1,0 +1,359 @@
+﻿2025-11-08T00:40:36.4329722Z Current runner version: '2.329.0'
+2025-11-08T00:40:36.4357835Z ##[group]Runner Image Provisioner
+2025-11-08T00:40:36.4358755Z Hosted Compute Agent
+2025-11-08T00:40:36.4359322Z Version: 20251016.436
+2025-11-08T00:40:36.4359972Z Commit: 8ab8ac8bfd662a3739dab9fe09456aba92132568
+2025-11-08T00:40:36.4360647Z Build Date: 2025-10-15T20:44:12Z
+2025-11-08T00:40:36.4361374Z ##[endgroup]
+2025-11-08T00:40:36.4361943Z ##[group]Operating System
+2025-11-08T00:40:36.4362519Z Ubuntu
+2025-11-08T00:40:36.4363083Z 24.04.3
+2025-11-08T00:40:36.4363988Z LTS
+2025-11-08T00:40:36.4364504Z ##[endgroup]
+2025-11-08T00:40:36.4365101Z ##[group]Runner Image
+2025-11-08T00:40:36.4365739Z Image: ubuntu-24.04
+2025-11-08T00:40:36.4366251Z Version: 20251030.96.2
+2025-11-08T00:40:36.4367345Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251030.96/images/ubuntu/Ubuntu2404-Readme.md
+2025-11-08T00:40:36.4368936Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251030.96
+2025-11-08T00:40:36.4370037Z ##[endgroup]
+2025-11-08T00:40:36.4371143Z ##[group]GITHUB_TOKEN Permissions
+2025-11-08T00:40:36.4373712Z Contents: read
+2025-11-08T00:40:36.4374379Z Metadata: read
+2025-11-08T00:40:36.4374895Z Pages: write
+2025-11-08T00:40:36.4375486Z ##[endgroup]
+2025-11-08T00:40:36.4378424Z Secret source: Actions
+2025-11-08T00:40:36.4379550Z Prepare workflow directory
+2025-11-08T00:40:36.4759762Z Prepare all required actions
+2025-11-08T00:40:36.4800608Z Getting action download info
+2025-11-08T00:40:36.8246883Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-11-08T00:40:36.9909355Z Download action repository 'actions/jekyll-build-pages@v1' (SHA:44a6e6beabd48582f863aeeb6cb2151cc1716697)
+2025-11-08T00:40:37.3606875Z Download action repository 'actions/upload-pages-artifact@v3' (SHA:56afc609e74202658d3ffba0e8f6dda462b719fa)
+2025-11-08T00:40:37.6959697Z Getting action download info
+2025-11-08T00:40:37.8170879Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2025-11-08T00:40:37.9644525Z Complete job name: build
+2025-11-08T00:40:38.0137167Z ##[group]Pull down action image 'ghcr.io/actions/jekyll-build-pages:v1.0.13'
+2025-11-08T00:40:38.0193859Z ##[command]/usr/bin/docker pull ghcr.io/actions/jekyll-build-pages:v1.0.13
+2025-11-08T00:40:38.4701454Z v1.0.13: Pulling from actions/jekyll-build-pages
+2025-11-08T00:40:38.4702845Z efc2b5ad9eec: Pulling fs layer
+2025-11-08T00:40:38.4704093Z 165b60d1bb48: Pulling fs layer
+2025-11-08T00:40:38.4705087Z 2a328af1ca3a: Pulling fs layer
+2025-11-08T00:40:38.4706096Z 32b58fa44788: Pulling fs layer
+2025-11-08T00:40:38.4707050Z 590ab93c22d2: Pulling fs layer
+2025-11-08T00:40:38.4707998Z 26ea96c4c14c: Pulling fs layer
+2025-11-08T00:40:38.4709260Z bd7e451dfea1: Pulling fs layer
+2025-11-08T00:40:38.4710785Z c209e9dadc51: Pulling fs layer
+2025-11-08T00:40:38.4712280Z a4925b5c711a: Pulling fs layer
+2025-11-08T00:40:38.4713579Z cd9459784e3c: Pulling fs layer
+2025-11-08T00:40:38.4714537Z 32b58fa44788: Waiting
+2025-11-08T00:40:38.4715448Z 590ab93c22d2: Waiting
+2025-11-08T00:40:38.4716359Z 26ea96c4c14c: Waiting
+2025-11-08T00:40:38.4717214Z bd7e451dfea1: Waiting
+2025-11-08T00:40:38.4718052Z c209e9dadc51: Waiting
+2025-11-08T00:40:38.4718872Z cd9459784e3c: Waiting
+2025-11-08T00:40:38.5571567Z 2a328af1ca3a: Verifying Checksum
+2025-11-08T00:40:38.5572859Z 2a328af1ca3a: Download complete
+2025-11-08T00:40:38.6451181Z 165b60d1bb48: Verifying Checksum
+2025-11-08T00:40:38.6456147Z 165b60d1bb48: Download complete
+2025-11-08T00:40:38.6609451Z efc2b5ad9eec: Verifying Checksum
+2025-11-08T00:40:38.6611776Z efc2b5ad9eec: Download complete
+2025-11-08T00:40:38.7300301Z 590ab93c22d2: Verifying Checksum
+2025-11-08T00:40:38.7304214Z 590ab93c22d2: Download complete
+2025-11-08T00:40:38.8260250Z bd7e451dfea1: Verifying Checksum
+2025-11-08T00:40:38.8265031Z bd7e451dfea1: Download complete
+2025-11-08T00:40:38.9350423Z 32b58fa44788: Download complete
+2025-11-08T00:40:39.0419205Z a4925b5c711a: Download complete
+2025-11-08T00:40:39.1242371Z cd9459784e3c: Verifying Checksum
+2025-11-08T00:40:39.1244026Z cd9459784e3c: Download complete
+2025-11-08T00:40:39.1385883Z c209e9dadc51: Verifying Checksum
+2025-11-08T00:40:39.1387187Z c209e9dadc51: Download complete
+2025-11-08T00:40:39.9703728Z efc2b5ad9eec: Pull complete
+2025-11-08T00:40:40.7715680Z 26ea96c4c14c: Verifying Checksum
+2025-11-08T00:40:40.7716318Z 26ea96c4c14c: Download complete
+2025-11-08T00:40:42.1854023Z 165b60d1bb48: Pull complete
+2025-11-08T00:40:42.2005794Z 2a328af1ca3a: Pull complete
+2025-11-08T00:40:43.1698328Z 32b58fa44788: Pull complete
+2025-11-08T00:40:43.1802759Z 590ab93c22d2: Pull complete
+2025-11-08T00:40:47.2875248Z 26ea96c4c14c: Pull complete
+2025-11-08T00:40:47.2978782Z bd7e451dfea1: Pull complete
+2025-11-08T00:40:49.3382500Z c209e9dadc51: Pull complete
+2025-11-08T00:40:49.3640957Z a4925b5c711a: Pull complete
+2025-11-08T00:40:49.3728820Z cd9459784e3c: Pull complete
+2025-11-08T00:40:49.3765311Z Digest: sha256:6791ebfd912185ed59bfb5fb102664fa872496b79f87ff8b9cfba292a7345041
+2025-11-08T00:40:49.3781486Z Status: Downloaded newer image for ghcr.io/actions/jekyll-build-pages:v1.0.13
+2025-11-08T00:40:49.3794838Z ghcr.io/actions/jekyll-build-pages:v1.0.13
+2025-11-08T00:40:49.3823252Z ##[endgroup]
+2025-11-08T00:40:49.4098648Z ##[group]Run actions/checkout@v4
+2025-11-08T00:40:49.4099188Z with:
+2025-11-08T00:40:49.4099367Z   ref: main
+2025-11-08T00:40:49.4099555Z   submodules: recursive
+2025-11-08T00:40:49.4099826Z   repository: Valente-Coding/valente-coding.github.io
+2025-11-08T00:40:49.4100279Z   token: ***
+2025-11-08T00:40:49.4100466Z   ssh-strict: true
+2025-11-08T00:40:49.4100658Z   ssh-user: git
+2025-11-08T00:40:49.4100839Z   persist-credentials: true
+2025-11-08T00:40:49.4101083Z   clean: true
+2025-11-08T00:40:49.4101281Z   sparse-checkout-cone-mode: true
+2025-11-08T00:40:49.4101511Z   fetch-depth: 1
+2025-11-08T00:40:49.4101681Z   fetch-tags: false
+2025-11-08T00:40:49.4101886Z   show-progress: true
+2025-11-08T00:40:49.4102105Z   lfs: false
+2025-11-08T00:40:49.4102280Z   set-safe-directory: true
+2025-11-08T00:40:49.4102695Z ##[endgroup]
+2025-11-08T00:40:49.5175595Z Syncing repository: Valente-Coding/valente-coding.github.io
+2025-11-08T00:40:49.5177019Z ##[group]Getting Git version info
+2025-11-08T00:40:49.5177567Z Working directory is '/home/runner/work/valente-coding.github.io/valente-coding.github.io'
+2025-11-08T00:40:49.5178205Z [command]/usr/bin/git version
+2025-11-08T00:40:49.5268946Z git version 2.51.2
+2025-11-08T00:40:49.5296001Z ##[endgroup]
+2025-11-08T00:40:49.5310593Z Temporarily overriding HOME='/home/runner/work/_temp/a8858797-6d4e-4ed8-ac73-d140d542f9f3' before making global git config changes
+2025-11-08T00:40:49.5311654Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-08T00:40:49.5325033Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/valente-coding.github.io/valente-coding.github.io
+2025-11-08T00:40:49.5361964Z Deleting the contents of '/home/runner/work/valente-coding.github.io/valente-coding.github.io'
+2025-11-08T00:40:49.5365879Z ##[group]Initializing the repository
+2025-11-08T00:40:49.5370093Z [command]/usr/bin/git init /home/runner/work/valente-coding.github.io/valente-coding.github.io
+2025-11-08T00:40:49.5480120Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-11-08T00:40:49.5480692Z hint: is subject to change. To configure the initial branch name to use in all
+2025-11-08T00:40:49.5481221Z hint: of your new repositories, which will suppress this warning, call:
+2025-11-08T00:40:49.5481586Z hint:
+2025-11-08T00:40:49.5481893Z hint: 	git config --global init.defaultBranch <name>
+2025-11-08T00:40:49.5482210Z hint:
+2025-11-08T00:40:49.5482506Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-11-08T00:40:49.5483021Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-11-08T00:40:49.5483725Z hint:
+2025-11-08T00:40:49.5483950Z hint: 	git branch -m <name>
+2025-11-08T00:40:49.5484194Z hint:
+2025-11-08T00:40:49.5484848Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-11-08T00:40:49.5486042Z Initialized empty Git repository in /home/runner/work/valente-coding.github.io/valente-coding.github.io/.git/
+2025-11-08T00:40:49.5497275Z [command]/usr/bin/git remote add origin https://github.com/Valente-Coding/valente-coding.github.io
+2025-11-08T00:40:49.5531965Z ##[endgroup]
+2025-11-08T00:40:49.5532565Z ##[group]Disabling automatic garbage collection
+2025-11-08T00:40:49.5537263Z [command]/usr/bin/git config --local gc.auto 0
+2025-11-08T00:40:49.5564741Z ##[endgroup]
+2025-11-08T00:40:49.5565360Z ##[group]Setting up auth
+2025-11-08T00:40:49.5572414Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-08T00:40:49.5604093Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-08T00:40:49.5955416Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-08T00:40:49.5986574Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-08T00:40:49.6206630Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-11-08T00:40:49.6242168Z ##[endgroup]
+2025-11-08T00:40:49.6242887Z ##[group]Fetching the repository
+2025-11-08T00:40:49.6251673Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2025-11-08T00:40:55.6551406Z From https://github.com/Valente-Coding/valente-coding.github.io
+2025-11-08T00:40:55.6552113Z  * [new branch]      main       -> origin/main
+2025-11-08T00:40:55.6579967Z ##[endgroup]
+2025-11-08T00:40:55.6580347Z ##[group]Determining the checkout info
+2025-11-08T00:40:55.6587529Z [command]/usr/bin/git branch --list --remote origin/main
+2025-11-08T00:40:55.6612206Z   origin/main
+2025-11-08T00:40:55.6618160Z ##[endgroup]
+2025-11-08T00:40:55.6622735Z [command]/usr/bin/git sparse-checkout disable
+2025-11-08T00:40:55.6664232Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-11-08T00:40:55.6691526Z ##[group]Checking out the ref
+2025-11-08T00:40:55.6696318Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-11-08T00:40:55.9477360Z Switched to a new branch 'main'
+2025-11-08T00:40:55.9477947Z branch 'main' set up to track 'origin/main'.
+2025-11-08T00:40:55.9487579Z ##[endgroup]
+2025-11-08T00:40:55.9488185Z ##[group]Setting up auth for fetching submodules
+2025-11-08T00:40:55.9496362Z [command]/usr/bin/git config --global http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-11-08T00:40:55.9538043Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+2025-11-08T00:40:55.9570079Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+2025-11-08T00:40:55.9603175Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-110548330@github.com:
+2025-11-08T00:40:55.9628572Z ##[endgroup]
+2025-11-08T00:40:55.9628900Z ##[group]Fetching submodules
+2025-11-08T00:40:55.9632865Z [command]/usr/bin/git submodule sync --recursive
+2025-11-08T00:40:55.9858124Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2025-11-08T00:40:56.0083677Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
+2025-11-08T00:40:56.0312865Z ##[endgroup]
+2025-11-08T00:40:56.0313629Z ##[group]Persisting credentials for submodules
+2025-11-08T00:40:56.0320234Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+2025-11-08T00:40:56.0546964Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2025-11-08T00:40:56.0768879Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+2025-11-08T00:40:56.0989686Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-110548330@github.com:'
+2025-11-08T00:40:56.1204619Z ##[endgroup]
+2025-11-08T00:40:56.1243247Z [command]/usr/bin/git log -1 --format=%H
+2025-11-08T00:40:56.1265577Z 0a65840e37a5d7f4b0e023e17c0769408714fcc7
+2025-11-08T00:40:56.1436380Z ##[group]Run actions/jekyll-build-pages@v1
+2025-11-08T00:40:56.1436667Z with:
+2025-11-08T00:40:56.1436826Z   source: .
+2025-11-08T00:40:56.1436997Z   destination: ./_site
+2025-11-08T00:40:56.1437198Z   future: false
+2025-11-08T00:40:56.1437429Z   build_revision: 0a65840e37a5d7f4b0e023e17c0769408714fcc7
+2025-11-08T00:40:56.1437703Z   verbose: true
+2025-11-08T00:40:56.1437980Z   token: ***
+2025-11-08T00:40:56.1438152Z ##[endgroup]
+2025-11-08T00:40:56.1530530Z ##[command]/usr/bin/docker run --name ghcrioactionsjekyllbuildpagesv1013_62d3f4 --label b60e9f --workdir /github/workspace --rm -e "INPUT_SOURCE" -e "INPUT_DESTINATION" -e "INPUT_FUTURE" -e "INPUT_BUILD_REVISION" -e "INPUT_VERBOSE" -e "INPUT_TOKEN" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_ID_TOKEN_REQUEST_URL" -e "ACTIONS_ID_TOKEN_REQUEST_TOKEN" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/valente-coding.github.io/valente-coding.github.io":"/github/workspace" ghcr.io/actions/jekyll-build-pages:v1.0.13
+2025-11-08T00:40:57.1757571Z [33mConfiguration file: none[0m
+2025-11-08T00:40:57.2943904Z To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
+2025-11-08T00:40:59.5112567Z   Logging at level: debug
+2025-11-08T00:40:59.5113041Z       GitHub Pages: github-pages v232
+2025-11-08T00:40:59.5113649Z       GitHub Pages: jekyll v3.10.0
+2025-11-08T00:40:59.5114038Z              Theme: jekyll-theme-primer
+2025-11-08T00:40:59.5114572Z       Theme source: /usr/local/bundle/gems/jekyll-theme-primer-0.6.0
+2025-11-08T00:40:59.5115108Z          Requiring: jekyll-github-metadata
+2025-11-08T00:40:59.5115522Z          Requiring: jekyll-seo-tag
+2025-11-08T00:40:59.5115897Z          Requiring: jekyll-coffeescript
+2025-11-08T00:40:59.5116370Z          Requiring: jekyll-commonmark-ghpages
+2025-11-08T00:40:59.5116864Z          Requiring: jekyll-gist
+2025-11-08T00:40:59.5117248Z          Requiring: jekyll-github-metadata
+2025-11-08T00:40:59.5117687Z          Requiring: jekyll-paginate
+2025-11-08T00:40:59.5118554Z          Requiring: jekyll-relative-links
+2025-11-08T00:40:59.5119032Z          Requiring: jekyll-optional-front-matter
+2025-11-08T00:40:59.5119512Z          Requiring: jekyll-readme-index
+2025-11-08T00:40:59.5119976Z          Requiring: jekyll-default-layout
+2025-11-08T00:40:59.5120317Z          Requiring: jekyll-titles-from-headings
+2025-11-08T00:40:59.5120612Z    GitHub Metadata: Initializing...
+2025-11-08T00:40:59.5120873Z             Source: /github/workspace/.
+2025-11-08T00:40:59.5121160Z        Destination: /github/workspace/./_site
+2025-11-08T00:40:59.5121498Z  Incremental build: disabled. Enable with --incremental
+2025-11-08T00:40:59.5121824Z       Generating... 
+2025-11-08T00:40:59.5127030Z         Generating: JekyllOptionalFrontMatter::Generator finished in 0.000282017 seconds.
+2025-11-08T00:40:59.5127905Z         Generating: JekyllReadmeIndex::Generator finished in 0.001743872 seconds.
+2025-11-08T00:40:59.5128682Z         Generating: Jekyll::Paginate::Pagination finished in 1.058e-05 seconds.
+2025-11-08T00:40:59.5129466Z         Generating: JekyllRelativeLinks::Generator finished in 0.000459911 seconds.
+2025-11-08T00:40:59.5130257Z         Generating: JekyllDefaultLayout::Generator finished in 7.8837e-05 seconds.
+2025-11-08T00:40:59.5130880Z          Requiring: kramdown-parser-gfm
+2025-11-08T00:40:59.5131454Z         Generating: JekyllTitlesFromHeadings::Generator finished in 0.007999695 seconds.
+2025-11-08T00:40:59.5131870Z          Rendering: assets/css/style.scss
+2025-11-08T00:40:59.5132342Z   Pre-Render Hooks: assets/css/style.scss
+2025-11-08T00:40:59.5132718Z   Rendering Markup: assets/css/style.scss
+2025-11-08T00:40:59.5132993Z          Rendering: FestaMagusto/DEPLOY.md
+2025-11-08T00:40:59.5133243Z   Pre-Render Hooks: FestaMagusto/DEPLOY.md
+2025-11-08T00:40:59.5133863Z   Rendering Markup: FestaMagusto/DEPLOY.md
+2025-11-08T00:40:59.5134116Z   Rendering Layout: FestaMagusto/DEPLOY.md
+2025-11-08T00:40:59.5134442Z      Layout source: theme
+2025-11-08T00:40:59.5134785Z    GitHub Metadata: Generating for Valente-Coding/valente-coding.github.io
+2025-11-08T00:40:59.5135328Z    GitHub Metadata: Calling @client.organization("Valente-Coding")
+2025-11-08T00:40:59.5135711Z    GitHub Metadata: Calling @client.user("Valente-Coding")
+2025-11-08T00:40:59.5136451Z    GitHub Metadata: Calling @client.repository("Valente-Coding/valente-coding.github.io", {:accept=>"application/vnd.github.drax-preview+json"})
+2025-11-08T00:40:59.5137290Z    GitHub Metadata: Calling @client.pages("Valente-Coding/valente-coding.github.io", {})
+2025-11-08T00:40:59.5137810Z          Rendering: FestaMagusto/FIREBASE_SETUP.md
+2025-11-08T00:40:59.5138116Z   Pre-Render Hooks: FestaMagusto/FIREBASE_SETUP.md
+2025-11-08T00:40:59.5138458Z   Rendering Markup: FestaMagusto/FIREBASE_SETUP.md
+2025-11-08T00:40:59.5138970Z   Rendering Layout: FestaMagusto/FIREBASE_SETUP.md
+2025-11-08T00:40:59.5139440Z      Layout source: theme
+2025-11-08T00:40:59.5139873Z            Writing: /github/workspace/_site/assets/css/style.css
+2025-11-08T00:40:59.5140471Z            Writing: /github/workspace/_site/FestaMagusto/DEPLOY.html
+2025-11-08T00:40:59.5141085Z            Writing: /github/workspace/_site/FestaMagusto/FIREBASE_SETUP.html
+2025-11-08T00:40:59.5141612Z                     done in 1.918 seconds.
+2025-11-08T00:40:59.5142054Z  Auto-regeneration: disabled. Use --watch to enable.
+2025-11-08T00:40:59.7034870Z ##[group]Run actions/upload-pages-artifact@v3
+2025-11-08T00:40:59.7035189Z with:
+2025-11-08T00:40:59.7035362Z   path: ./_site
+2025-11-08T00:40:59.7035557Z   name: github-pages
+2025-11-08T00:40:59.7035753Z   retention-days: 1
+2025-11-08T00:40:59.7035943Z ##[endgroup]
+2025-11-08T00:40:59.7134488Z ##[group]Run echo ::group::Archive artifact
+2025-11-08T00:40:59.7134868Z [36;1mecho ::group::Archive artifact[0m
+2025-11-08T00:40:59.7135115Z [36;1mtar \[0m
+2025-11-08T00:40:59.7135338Z [36;1m  --dereference --hard-dereference \[0m
+2025-11-08T00:40:59.7135635Z [36;1m  --directory "$INPUT_PATH" \[0m
+2025-11-08T00:40:59.7135905Z [36;1m  -cvf "$RUNNER_TEMP/artifact.tar" \[0m
+2025-11-08T00:40:59.7136375Z [36;1m  --exclude=.git \[0m
+2025-11-08T00:40:59.7136590Z [36;1m  --exclude=.github \[0m
+2025-11-08T00:40:59.7136800Z [36;1m  .[0m
+2025-11-08T00:40:59.7136970Z [36;1mecho ::endgroup::[0m
+2025-11-08T00:40:59.7331429Z shell: /usr/bin/sh -e {0}
+2025-11-08T00:40:59.7331701Z env:
+2025-11-08T00:40:59.7331957Z   INPUT_PATH: ./_site
+2025-11-08T00:40:59.7332184Z ##[endgroup]
+2025-11-08T00:40:59.7420721Z ##[group]Archive artifact
+2025-11-08T00:40:59.7434250Z ./
+2025-11-08T00:40:59.7434620Z ./Scripts/
+2025-11-08T00:40:59.7435001Z ./Scripts/ProjectTimelineHandler.js
+2025-11-08T00:40:59.7435675Z ./Scripts/CVAnimation.js
+2025-11-08T00:40:59.7436385Z ./Scripts/AboutMeTitlesAnimation.js
+2025-11-08T00:40:59.7436866Z ./Scripts/PagesHandler.js
+2025-11-08T00:40:59.7437226Z ./Scripts/scripts.js
+2025-11-08T00:40:59.7437549Z ./fonts.css
+2025-11-08T00:40:59.7437843Z ./deploy.ps1
+2025-11-08T00:40:59.7438134Z ./index.html
+2025-11-08T00:40:59.7438421Z ./FestaMagusto/
+2025-11-08T00:40:59.7438747Z ./FestaMagusto/styles.css
+2025-11-08T00:40:59.7439103Z ./FestaMagusto/index.html
+2025-11-08T00:40:59.7439452Z ./FestaMagusto/script.js
+2025-11-08T00:40:59.7439838Z ./FestaMagusto/vite.config.js
+2025-11-08T00:40:59.7440220Z ./FestaMagusto/DEPLOY.html
+2025-11-08T00:40:59.7440613Z ./FestaMagusto/package-lock.json
+2025-11-08T00:40:59.7441026Z ./FestaMagusto/README.md
+2025-11-08T00:40:59.7441391Z ./FestaMagusto/FIREBASE_SETUP.md
+2025-11-08T00:40:59.7441819Z ./FestaMagusto/package.json
+2025-11-08T00:40:59.7442226Z ./FestaMagusto/DEPLOY.md
+2025-11-08T00:40:59.7442593Z ./FestaMagusto/FIREBASE_SETUP.html
+2025-11-08T00:40:59.7442980Z ./style.css
+2025-11-08T00:40:59.7443259Z ./assets/
+2025-11-08T00:40:59.7443764Z ./assets/css/
+2025-11-08T00:40:59.7444056Z ./assets/css/style.css
+2025-11-08T00:40:59.7444367Z ./animations.css
+2025-11-08T00:40:59.7444658Z ./Images/
+2025-11-08T00:40:59.7444949Z ./Images/Unity.png
+2025-11-08T00:40:59.7445276Z ./Images/ComedyShowdown.mp4
+2025-11-08T00:40:59.7586911Z ./Images/MixAndServe.mp4
+2025-11-08T00:40:59.8023578Z ./Images/MarMadeSushi.mp4
+2025-11-08T00:40:59.8242914Z ./Images/ComedyShowdown.png
+2025-11-08T00:40:59.8245676Z ./Images/Placeholder.mp4
+2025-11-08T00:40:59.8268636Z ./Images/VencisAdventures.png
+2025-11-08T00:40:59.8276131Z ./Images/VencisAdventures.mp4
+2025-11-08T00:40:59.8411136Z ./Images/GoncaloValenteCV.png
+2025-11-08T00:40:59.8414364Z ./Images/MixAndServeFast.mp4
+2025-11-08T00:40:59.8596689Z ./Images/3x4_placeholder.jpg
+2025-11-08T00:40:59.8597122Z ./Images/MarMadeSushi.png
+2025-11-08T00:40:59.8597915Z ./Images/Unreal.png
+2025-11-08T00:40:59.8598261Z ./Images/DeepAnomaly.png
+2025-11-08T00:40:59.8600202Z ./Images/GoncaloValenteCV.pdf
+2025-11-08T00:40:59.8600843Z ./Images/Netflix-Redesign.png
+2025-11-08T00:40:59.8601850Z ./Images/MixAndServe.png
+2025-11-08T00:40:59.8603001Z ./Images/Sudoku48h.png
+2025-11-08T00:40:59.8603691Z ./Images/DeepAnomaly.mp4
+2025-11-08T00:40:59.8810586Z ##[endgroup]
+2025-11-08T00:40:59.8882965Z ##[group]Run actions/upload-artifact@v4
+2025-11-08T00:40:59.8883230Z with:
+2025-11-08T00:40:59.8883567Z   name: github-pages
+2025-11-08T00:40:59.8883796Z   path: /home/runner/work/_temp/artifact.tar
+2025-11-08T00:40:59.8884042Z   retention-days: 1
+2025-11-08T00:40:59.8884245Z   if-no-files-found: error
+2025-11-08T00:40:59.8884458Z   compression-level: 6
+2025-11-08T00:40:59.8884856Z   overwrite: false
+2025-11-08T00:40:59.8885057Z   include-hidden-files: false
+2025-11-08T00:40:59.8885266Z ##[endgroup]
+2025-11-08T00:41:00.1074204Z With the provided path, there will be 1 file uploaded
+2025-11-08T00:41:00.1079192Z Artifact name is valid!
+2025-11-08T00:41:00.1080337Z Root directory input is valid!
+2025-11-08T00:41:00.2545074Z Beginning upload of artifact content to blob storage
+2025-11-08T00:41:00.9349594Z Uploaded bytes 8388608
+2025-11-08T00:41:01.2482199Z Uploaded bytes 16777216
+2025-11-08T00:41:01.2627519Z Uploaded bytes 25165824
+2025-11-08T00:41:01.5154917Z Uploaded bytes 33554432
+2025-11-08T00:41:01.7670745Z Uploaded bytes 41943040
+2025-11-08T00:41:01.9656057Z Uploaded bytes 50331648
+2025-11-08T00:41:02.2020222Z Uploaded bytes 58720256
+2025-11-08T00:41:02.4731814Z Uploaded bytes 67108864
+2025-11-08T00:41:02.7255883Z Uploaded bytes 75497472
+2025-11-08T00:41:02.9506970Z Uploaded bytes 83886080
+2025-11-08T00:41:03.2082638Z Uploaded bytes 92274688
+2025-11-08T00:41:03.4554705Z Uploaded bytes 100663296
+2025-11-08T00:41:03.7457015Z Uploaded bytes 109051904
+2025-11-08T00:41:03.9905348Z Uploaded bytes 117440512
+2025-11-08T00:41:04.2462536Z Uploaded bytes 125829120
+2025-11-08T00:41:04.5071032Z Uploaded bytes 134217728
+2025-11-08T00:41:04.7789727Z Uploaded bytes 142606336
+2025-11-08T00:41:05.0490071Z Uploaded bytes 150994944
+2025-11-08T00:41:05.2933288Z Uploaded bytes 159383552
+2025-11-08T00:41:05.3721111Z Uploaded bytes 160376041
+2025-11-08T00:41:05.4103957Z Finished uploading artifact content to blob storage!
+2025-11-08T00:41:05.4107514Z SHA256 digest of uploaded artifact zip is a72227d9b2edd1ca8f045e132cc2301bfe3a3a053cf7bb48e9371811084d97c7
+2025-11-08T00:41:05.4109787Z Finalizing artifact upload
+2025-11-08T00:41:05.5812592Z Artifact github-pages.zip successfully finalized. Artifact ID 4505316622
+2025-11-08T00:41:05.5813803Z Artifact github-pages has been successfully uploaded! Final size is 160376041 bytes. Artifact ID is 4505316622
+2025-11-08T00:41:05.5823529Z Artifact download URL: https://github.com/Valente-Coding/valente-coding.github.io/actions/runs/19185083620/artifacts/4505316622
+2025-11-08T00:41:05.6034789Z Post job cleanup.
+2025-11-08T00:41:05.6996117Z [command]/usr/bin/git version
+2025-11-08T00:41:05.7037370Z git version 2.51.2
+2025-11-08T00:41:05.7081704Z Temporarily overriding HOME='/home/runner/work/_temp/72ffff57-0e7d-46a4-ba63-ee28b1c1e1b4' before making global git config changes
+2025-11-08T00:41:05.7082990Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-08T00:41:05.7095677Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/valente-coding.github.io/valente-coding.github.io
+2025-11-08T00:41:05.7132859Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-08T00:41:05.7168502Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-08T00:41:05.7409547Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-08T00:41:05.7432570Z http.https://github.com/.extraheader
+2025-11-08T00:41:05.7445912Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-11-08T00:41:05.7478510Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-08T00:41:05.7846570Z Cleaning up orphan processes

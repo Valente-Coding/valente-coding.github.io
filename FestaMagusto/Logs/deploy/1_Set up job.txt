@@ -1,0 +1,29 @@
+﻿2025-11-08T00:41:11.8070890Z Current runner version: '2.329.0'
+2025-11-08T00:41:11.8094921Z ##[group]Runner Image Provisioner
+2025-11-08T00:41:11.8095844Z Hosted Compute Agent
+2025-11-08T00:41:11.8096359Z Version: 20251016.436
+2025-11-08T00:41:11.8096951Z Commit: 8ab8ac8bfd662a3739dab9fe09456aba92132568
+2025-11-08T00:41:11.8097728Z Build Date: 2025-10-15T20:44:12Z
+2025-11-08T00:41:11.8098291Z ##[endgroup]
+2025-11-08T00:41:11.8098867Z ##[group]Operating System
+2025-11-08T00:41:11.8099854Z Ubuntu
+2025-11-08T00:41:11.8100367Z 24.04.3
+2025-11-08T00:41:11.8100798Z LTS
+2025-11-08T00:41:11.8101314Z ##[endgroup]
+2025-11-08T00:41:11.8101781Z ##[group]Runner Image
+2025-11-08T00:41:11.8102361Z Image: ubuntu-24.04
+2025-11-08T00:41:11.8102891Z Version: 20251030.96.2
+2025-11-08T00:41:11.8103939Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251030.96/images/ubuntu/Ubuntu2404-Readme.md
+2025-11-08T00:41:11.8105365Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251030.96
+2025-11-08T00:41:11.8106600Z ##[endgroup]
+2025-11-08T00:41:11.8107750Z ##[group]GITHUB_TOKEN Permissions
+2025-11-08T00:41:11.8109815Z Contents: read
+2025-11-08T00:41:11.8110346Z Metadata: read
+2025-11-08T00:41:11.8110954Z Pages: write
+2025-11-08T00:41:11.8111441Z ##[endgroup]
+2025-11-08T00:41:11.8113927Z Secret source: Actions
+2025-11-08T00:41:11.8114612Z Prepare workflow directory
+2025-11-08T00:41:11.8453123Z Prepare all required actions
+2025-11-08T00:41:11.8492250Z Getting action download info
+2025-11-08T00:41:12.1190054Z Download action repository 'actions/deploy-pages@v4' (SHA:d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e)
+2025-11-08T00:41:12.7616144Z Complete job name: deploy
