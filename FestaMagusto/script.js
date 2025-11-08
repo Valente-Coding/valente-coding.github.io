@@ -309,8 +309,8 @@ async function loadAnalytics() {
     const endTimeInput = document.getElementById('end-time');
     const analyticsProductsDiv = document.getElementById('analytics-products');
     const totalRevenueElement = document.getElementById('total-revenue');
-    const totalCashTransactionsElement = document.getElementById('total-cash-transactions');
-    const totalBankTransactionsElement = document.getElementById('total-bank-transactions');
+    const totalCashRevenueElement = document.getElementById('total-cash-transactions');
+    const totalBankRevenueElement = document.getElementById('total-bank-transactions');
     const totalItemsSoldElement = document.getElementById('total-items-sold');
 
     const startDate = startDateInput.value;
@@ -359,21 +359,22 @@ async function loadAnalytics() {
 
         // Aggregate data
         let totalRevenue = 0;
-        let totalCashTransactions = 0;
-        let totalBankTransactions = 0;
+        let totalCashRevenue = 0;
+        let totalBankRevenue = 0;
         let totalItemsSold = 0;
         const productSales = {};
 
         querySnapshot.forEach((doc) => {
             const cartData = doc.data();
-            totalRevenue += cartData.total || 0;
+            const cartTotal = cartData.total || 0;
+            totalRevenue += cartTotal;
             totalItemsSold += cartData.totalItems || 0;
 
-            // Count payment methods
+            // Sum revenue by payment method
             if (cartData.paymentMethod === 'Cash') {
-                totalCashTransactions++;
+                totalCashRevenue += cartTotal;
             } else if (cartData.paymentMethod === 'Bank') {
-                totalBankTransactions++;
+                totalBankRevenue += cartTotal;
             }
 
             // Aggregate product sales
@@ -397,8 +398,8 @@ async function loadAnalytics() {
 
         // Update summary cards
         totalRevenueElement.textContent = `€${totalRevenue.toFixed(2)}`;
-        totalCashTransactionsElement.textContent = totalCashTransactions;
-        totalBankTransactionsElement.textContent = totalBankTransactions;
+        totalCashRevenueElement.textContent = `€${totalCashRevenue.toFixed(2)}`;
+        totalBankRevenueElement.textContent = `€${totalBankRevenue.toFixed(2)}`;
         totalItemsSoldElement.textContent = totalItemsSold;
 
         // Display product sales
@@ -433,14 +434,14 @@ async function loadAnalytics() {
 function clearAnalytics() {
     const analyticsProductsDiv = document.getElementById('analytics-products');
     const totalRevenueElement = document.getElementById('total-revenue');
-    const totalCashTransactionsElement = document.getElementById('total-cash-transactions');
-    const totalBankTransactionsElement = document.getElementById('total-bank-transactions');
+    const totalCashRevenueElement = document.getElementById('total-cash-transactions');
+    const totalBankRevenueElement = document.getElementById('total-bank-transactions');
     const totalItemsSoldElement = document.getElementById('total-items-sold');
 
     // Reset all summary values
     totalRevenueElement.textContent = '€0.00';
-    totalCashTransactionsElement.textContent = '0';
-    totalBankTransactionsElement.textContent = '0';
+    totalCashRevenueElement.textContent = '€0.00';
+    totalBankRevenueElement.textContent = '€0.00';
     totalItemsSoldElement.textContent = '0';
 
     // Clear product analytics
