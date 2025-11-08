@@ -573,6 +573,7 @@ body {
     letter-spacing: 1px;
     border-right: white 0.5vw dashed;
     padding: 1.5vh 0px;
+    width: 100%;
 }
 
 .summary-value {
