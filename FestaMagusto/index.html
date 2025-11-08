@@ -39,51 +39,6 @@
                     <div class="empty-cart">No items added yet</div>
                 </div>
             </div>
-
-            <!-- Analytics Section -->
-            <div class="analytics-section">
-                <div class="analytics-header">
-                    <div class="section-title">Sales Analytics</div>
-                    <div class="date-filters">
-                        <div class="date-input-group">
-                            <label for="start-date">From:</label>
-                            <div class="align-date-and-time">
-                                <input type="date" id="start-date" />
-                                <input type="time" id="start-time" value="00:00" />
-                            </div>
-                        </div>
-                        <div class="date-input-group">
-                            <label for="end-date">To:</label>
-                            <div class="align-date-and-time">
-                                <input type="date" id="end-date" />
-                                <input type="time" id="end-time" value="23:59" />
-                            </div>
-                        </div>
-                        <button class="load-analytics-btn" onclick="loadAnalytics()">
-                            <i class="fa-solid fa-chart-line"></i> Load
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="analytics-summary" id="analytics-summary">
-                    <div class="summary-card total-transactions-card">
-                        <div class="summary-label">Transactions</div>
-                        <div class="summary-value" id="total-transactions">0</div>
-                    </div>
-                    <div class="summary-card total-items-sold-card">
-                        <div class="summary-label">Items Sold</div>
-                        <div class="summary-value" id="total-items-sold">0</div>
-                    </div>
-                    <div class="summary-card total-revenue-card">
-                        <div class="summary-label">Total Revenue</div>
-                        <div class="summary-value" id="total-revenue">€0.00</div>
-                    </div>
-                </div>
-
-                <div class="analytics-products" id="analytics-products">
-                    <div class="empty-analytics">Select a date range and click Load to view sales data</div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -91,7 +46,7 @@
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, serverTimestamp, doc, setDoc, getDoc, updateDoc, increment, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, doc, setDoc, getDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
         
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
@@ -110,7 +65,7 @@
         
         // Make db available globally
         window.firebaseDB = db;
-        window.firebaseModules = { collection, addDoc, serverTimestamp, doc, setDoc, getDoc, updateDoc, increment, query, where, getDocs };
+        window.firebaseModules = { collection, addDoc, serverTimestamp, doc, setDoc, getDoc, updateDoc, increment };
     </script>
     <script src="script.js"></script>
 </body>
