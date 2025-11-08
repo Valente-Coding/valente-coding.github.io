@@ -241,5 +241,145 @@ function saveCart() {
     });
 }
 
+// Load analytics data for date range
+async function loadAnalytics() {
+    const startDateInput = document.getElementById('start-date');
+    const endDateInput = document.getElementById('end-date');
+    const startTimeInput = document.getElementById('start-time');
+    const endTimeInput = document.getElementById('end-time');
+    const analyticsProductsDiv = document.getElementById('analytics-products');
+    const totalRevenueElement = document.getElementById('total-revenue');
+    const totalTransactionsElement = document.getElementById('total-transactions');
+    const totalItemsSoldElement = document.getElementById('total-items-sold');
+
+    const startDate = startDateInput.value;
+    const endDate = endDateInput.value;
+    const startTime = startTimeInput.value || '00:00';
+    const endTime = endTimeInput.value || '23:59';
+
+    if (!startDate || !endDate) {
+        alert('Please select both start and end dates');
+        return;
+    }
+
+    // Combine date and time
+    const startDateTime = new Date(`${startDate}T${startTime}:00`);
+    const endDateTime = new Date(`${endDate}T${endTime}:59`);
+
+    if (startDateTime > endDateTime) {
+        alert('Start date/time must be before end date/time');
+        return;
+    }
+
+    // Check if Firebase is initialized
+    if (!window.firebaseDB) {
+        console.error('Firebase is not initialized');
+        alert('Database connection not available');
+        return;
+    }
+
+    const db = window.firebaseDB;
+    const { collection, query, where, getDocs } = window.firebaseModules;
+
+    // Show loading state
+    analyticsProductsDiv.innerHTML = '<div class="loading-analytics">Loading analytics data...</div>';
+
+    try {
+        // Query carts within date range
+        const cartsRef = collection(db, 'carts');
+
+        const q = query(
+            cartsRef,
+            where('timestamp', '>=', startDateTime),
+            where('timestamp', '<=', endDateTime)
+        );
+
+        const querySnapshot = await getDocs(q);
+
+        // Aggregate data
+        let totalRevenue = 0;
+        let totalTransactions = 0;
+        let totalItemsSold = 0;
+        const productSales = {};
+
+        querySnapshot.forEach((doc) => {
+            const cartData = doc.data();
+            totalRevenue += cartData.total || 0;
+            totalTransactions++;
+            totalItemsSold += cartData.totalItems || 0;
+
+            // Aggregate product sales
+            if (cartData.items) {
+                cartData.items.forEach(item => {
+                    if (!productSales[item.productId]) {
+                        productSales[item.productId] = {
+                            id: item.productId,
+                            name: item.name,
+                            icon: item.icon,
+                            price: item.price,
+                            quantity: 0,
+                            revenue: 0
+                        };
+                    }
+                    productSales[item.productId].quantity += item.quantity;
+                    productSales[item.productId].revenue += item.subtotal;
+                });
+            }
+        });
+
+        // Update summary cards
+        totalRevenueElement.textContent = `€${totalRevenue.toFixed(2)}`;
+        totalTransactionsElement.textContent = totalTransactions;
+        totalItemsSoldElement.textContent = totalItemsSold;
+
+        // Display product sales
+        const productSalesArray = Object.values(productSales).sort((a, b) => b.revenue - a.revenue);
+
+        if (productSalesArray.length === 0) {
+            analyticsProductsDiv.innerHTML = '<div class="empty-analytics">No sales data found for this date range</div>';
+        } else {
+            analyticsProductsDiv.innerHTML = productSalesArray.map(product => `
+                <div class="analytics-product-card">
+                    <div class="analytics-product-icon">${product.icon}</div>
+                    <div class="analytics-product-info">
+                        <div class="analytics-product-name">${product.name}</div>
+                        <div class="analytics-product-quantity">${product.quantity} sold</div>
+                    </div>
+                    <div class="analytics-product-stats">
+                        <div class="analytics-product-revenue">€${product.revenue.toFixed(2)}</div>
+                        <div class="analytics-product-price">€${product.price.toFixed(2)} each</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+    } catch (error) {
+        console.error('Error loading analytics:', error);
+        analyticsProductsDiv.innerHTML = '<div class="empty-analytics">Error loading analytics data. Please try again.</div>';
+        alert('Error loading analytics data');
+    }
+}
+
+// Set default dates on page load
+window.addEventListener('DOMContentLoaded', () => {
+    const today = new Date();
+    const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    
+    const startDateInput = document.getElementById('start-date');
+    const endDateInput = document.getElementById('end-date');
+    const startTimeInput = document.getElementById('start-time');
+    const endTimeInput = document.getElementById('end-time');
+    
+    if (startDateInput && endDateInput) {
+        startDateInput.valueAsDate = startOfMonth;
+        endDateInput.valueAsDate = today;
+    }
+    
+    if (startTimeInput && endTimeInput) {
+        startTimeInput.value = '00:00';
+        endTimeInput.value = '23:59';
+    }
+});
+
 // Initialize the app
 initProducts();
