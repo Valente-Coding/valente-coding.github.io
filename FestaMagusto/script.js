@@ -1,5 +1,7 @@
 // Sample products - you can customize these
 const products = [
+    { id: 14, name: 'Entrada', icon: '🚪', price: 20.00 },
+    { id: 15, name: 'Sopa', icon: '🥣', price: 3.50 },
     { id: 4, name: 'Cerveja', icon: '🍺', price: 2.50 },
     { id: 5, name: 'Refrigerante', icon: '🥤', price: 2.50 },
     { id: 3, name: 'Água', icon: '💧', price: 2.50 },
