@@ -2,18 +2,19 @@
 const products = [
     { id: 14, name: 'Entrada', icon: '🚪', price: 20.00 },
     { id: 15, name: 'Sopa', icon: '🥣', price: 3.50 },
-    { id: 4, name: 'Cerveja', icon: '🍺', price: 2.50 },
+    { id: 4, name: 'Cerveja', icon: '🍺', price: 3.50 },
     { id: 5, name: 'Refrigerante', icon: '🥤', price: 2.50 },
     { id: 3, name: 'Água', icon: '💧', price: 2.50 },
     { id: 2, name: 'Vinho', icon: '🍷', price: 3.50 },
     { id: 6, name: 'Sangria', icon: '🍹', price: 3.50 },
     { id: 7, name: 'Espumante', icon: '🍾', price: 3.50 },
     { id: 8, name: 'Gin', icon: '🍸', price: 7.00 },
+    { id: 16, name: 'Shot', icon: '🥃', price: 2.50 },
     { id: 9, name: 'Feijoada', icon: '🍲', price: 10.00 },
     { id: 10, name: 'Bifana', icon: '🥪', price: 3.50 },
     { id: 11, name: '1/4 de Pizza', icon: '🍕', price: 3.50 },
     { id: 12, name: 'Pizza Inteira', icon: '🍕', price: 14.00 },
-    { id: 13, name: 'Mousse', icon: '🍮', price: 5.00 },
+    { id: 13, name: 'Mousse', icon: '🍮', price: 3.50 },
 ];
 
 let cart = [];
