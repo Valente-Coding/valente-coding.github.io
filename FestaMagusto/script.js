@@ -91,30 +91,42 @@ function updateCart() {
 
     // Update ticket counts
     // Calculate optimal combination of tickets to minimize leftover money
-    let bestTickets350 = 0;
-    let bestTickets250 = 0;
-    let minLeftover = total;
+    // let bestTickets350 = 0;
+    // let bestTickets250 = 0;
+    // let minLeftover = total;
     
-    // Try all possible combinations of 3.50€ tickets
-    const maxTickets350 = Math.floor(total / 3.50);
-    for (let tickets350 = 0; tickets350 <= maxTickets350; tickets350++) {
-        const remaining = total - (tickets350 * 3.50);
-        const tickets250 = Math.floor(remaining / 2.50);
-        const leftover = remaining - (tickets250 * 2.50);
+    // // Try all possible combinations of 3.50€ tickets
+    // const maxTickets350 = Math.floor(total / 3.50);
+    // for (let tickets350 = 0; tickets350 <= maxTickets350; tickets350++) {
+    //     const remaining = total - (tickets350 * 3.50);
+    //     const tickets250 = Math.floor(remaining / 2.50);
+    //     const leftover = remaining - (tickets250 * 2.50);
         
-        // Prefer solutions with more balanced ticket counts and minimal leftover
-        const ticketDifference = Math.abs(tickets350 - tickets250);
-        const currentScore = leftover + (ticketDifference * 0.1); // Small penalty for imbalance
+    //     // Prefer solutions with more balanced ticket counts and minimal leftover
+    //     const ticketDifference = Math.abs(tickets350 - tickets250);
+    //     const currentScore = leftover + (ticketDifference * 0.1); // Small penalty for imbalance
         
-        if (leftover < minLeftover || (leftover === minLeftover && ticketDifference < Math.abs(bestTickets350 - bestTickets250))) {
-            minLeftover = leftover;
-            bestTickets350 = tickets350;
-            bestTickets250 = tickets250;
-        }
-    }
+    //     if (leftover < minLeftover || (leftover === minLeftover && ticketDifference < Math.abs(bestTickets350 - bestTickets250))) {
+    //         minLeftover = leftover;
+    //         bestTickets350 = tickets350;
+    //         bestTickets250 = tickets250;
+    //     }
+    // }
 
-    tickets350Element.textContent = `${bestTickets350}x`;
-    tickets250Element.textContent = `${bestTickets250}x`;
+    //Ticket Counts
+    let tickets350 = 0;
+    let tickets250 = 0;
+    cart.forEach(item => {
+        let isMod350 = item.price % 3.5 == 0;
+        let isMod250 = item.price % 2.5 == 0;
+
+        tickets350 += isMod350 ? (item.price / 3.5) : 0;
+        tickets250 += !isMod350 && isMod250 ?  (item.price / 2.5) : 0;
+    });
+
+
+    tickets350Element.textContent = `${tickets350}x`;
+    tickets250Element.textContent = `${tickets250}x`;
 
     // Update count
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
