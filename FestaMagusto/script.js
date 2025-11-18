@@ -117,11 +117,11 @@ function updateCart() {
     let tickets350 = 0;
     let tickets250 = 0;
     cart.forEach(item => {
-        let isMod350 = item.price % 3.5 == 0;
-        let isMod250 = item.price % 2.5 == 0;
+        let isMod350 = (item.price % 3.5) == 0;
+        let isMod250 = (item.price % 2.5) == 0;
 
-        tickets350 += isMod350 ? (item.price / 3.5) : 0;
-        tickets250 += !isMod350 && isMod250 ?  (item.price / 2.5) : 0;
+        tickets350 += isMod350 ? item.quantity : 0;
+        tickets250 += !isMod350 && isMod250 ?  item.quantity : 0;
     });
 
 
