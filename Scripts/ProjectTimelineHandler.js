@@ -8,7 +8,7 @@ var Projects = [
         "ProjectTags": ["Emvenci", "Internship", "Singleplayer", "eLearning"],
         "ProjectSoftwareLogos": ["Unity"],
         "ProjectImage": "Images/VencisAdventures.png",
-        "ProjectVideo": "Images/VencisAdventures.mp4",
+        "ProjectVideo": "Images/VenciAdventuresFull.mp4",
         "ProjectVideoLink": "https://www.linkedin.com/posts/emvenci_lets-game-learn-and-secure-activity-7117422051514023936-N7AB",
         "ProjectSourceLink": "https://www.emvenci.com/products/games#venci",
     },
